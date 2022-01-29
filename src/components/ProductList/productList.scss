@@ -1,0 +1,15 @@
+.product-list{
+    &__title{
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 48px;
+    }
+
+    &__cards{
+        display: flex;
+    }
+}
+
+.card{
+    margin-right: 15px;
+}

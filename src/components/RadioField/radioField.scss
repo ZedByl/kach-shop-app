@@ -1,0 +1,17 @@
+.radio-field{
+    &__form{
+        display: inline-block;
+        margin-right: 12px;
+
+        &-input{
+            border-color: #a5a5a5;
+            margin-right: 6px;
+            cursor: pointer;
+        }
+        &-label{
+            font-size: 16px;
+            line-height: 22px;
+            cursor: pointer;
+        }
+    }
+}
