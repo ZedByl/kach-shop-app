@@ -212,3 +212,52 @@ export const sauces = [
         count: 1,
     },
 ]
+
+export const order = [
+    {
+        id: 'id klienta',
+        number: 130312,
+        date: 1633576399367,
+        totalPrice: 1299,
+        status: 'Обрабатывается',
+        pay: 'Карта',
+        street: 'ул. Львовская',
+        house: '48/2',
+        entrance: '',
+        floor: '2 этаж',
+        apartment: 'офис 301',
+        intercom: '4801#',
+        products: [
+            {
+                id: '18',
+                new: false,
+                image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
+                title: 'Филадельфия крем-брюле',
+                body: 'Сливочный сыр, семга татаки с тростниковым сахаром, соус у...',
+                type: 'desserts',
+                price: 395,
+                count: 1,
+            },
+            {
+                id: '19',
+                new: false,
+                image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
+                title: 'Супер Филадельфия',
+                body: 'Действительно много семги, сливочный сыр, огурец, рис, н...',
+                type: 'desserts',
+                price: 425,
+                count: 1,
+            },
+            {
+                id: '20',
+                new: false,
+                image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
+                title: 'Тигр мама',
+                body: 'Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик...',
+                type: 'desserts',
+                price: 525,
+                count: 1,
+            },
+        ],
+    },
+]

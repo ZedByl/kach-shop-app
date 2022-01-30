@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import TextField from '../TextField/textField'
 import RadioField from '../RadioField/radioField'
 import TextAreaField from '../TextAriaField/textAriaField'
+import './basketDelivery.scss'
 
 interface BasketDelivery {
     data: Data,
@@ -28,7 +29,7 @@ type ErrorPreview = Omit<Data, 'pay' | 'comment' | 'house' | 'entrance' | 'floor
 const BasketDelivery: FC<BasketDelivery> = ({ data, onChange, errors }) => (
     <>
         <div className="basket__delivery__block">
-            <div className="basket__name">О вас</div>
+            <div className="basket__delivery__name">О вас</div>
             <div className="basket__delivery__data">
                 <TextField
                   label="Имя*"
@@ -56,7 +57,7 @@ const BasketDelivery: FC<BasketDelivery> = ({ data, onChange, errors }) => (
             </div>
         </div>
         <div className="basket__delivery__block">
-            <div className="basket__name">Доставка</div>
+            <div className="basket__delivery__name">Доставка</div>
             <div className="basket__delivery__header">
                 <TextField
                   label="Улица*"
@@ -100,12 +101,12 @@ const BasketDelivery: FC<BasketDelivery> = ({ data, onChange, errors }) => (
             </div>
         </div>
         <div className="basket__delivery__block">
-            <div className="basket__name">Оплата</div>
+            <div className="basket__delivery__name">Оплата</div>
             <RadioField
               options={ [
-                    { name: 'Наличные', value: 'cash' },
-                    { name: 'Карта', value: 'bankСard' },
-                    { name: 'Apple Pay', value: ' applePay' },
+                    { name: 'Наличные', value: 'Наличные' },
+                    { name: 'Карта', value: 'Карта' },
+                    { name: 'Apple Pay', value: ' Apple Pay' },
                 ] }
               value={ data.pay }
               name="pay"
@@ -113,7 +114,7 @@ const BasketDelivery: FC<BasketDelivery> = ({ data, onChange, errors }) => (
             />
         </div>
         <div className="basket__delivery__block">
-            <div className="basket__name">Комментарий</div>
+            <div className="basket__delivery__name">Комментарий</div>
             <TextAreaField
               name="comment"
               onChange={ onChange || '' }

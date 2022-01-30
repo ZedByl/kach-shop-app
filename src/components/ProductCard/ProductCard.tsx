@@ -4,6 +4,7 @@ import {
     decrementCountProduct, getCountProduct, getProductItems, incrementCountProduct, setProductCart // eslint-disable-line
 } from '../../store/basket'
 import Counter from '../Counter/counter'
+import './productCard.scss'
 
 interface Card {
     id: string,
@@ -37,29 +38,33 @@ const ProductCard: FC<ProductCardProps> = ({ card }) => {
         dispatch(decrementCountProduct(id))
     }
     return (
-        <div className="card w-25 mr-2">
-            <img
-              src={ card.image }
-              className="card-img-top"
-              alt="..."
-            />
-            <div className="card-body">
-                <h5 className="card-title">{ card.title }</h5>
-                <p className="card-text">{ card.body }</p>
-                <div className="d-flex justify-content-between">
-                    { !isItemInBasket
-                        ? <button
-                            className="btn btn-primary"
-                            onClick={ handleAddProduct }
-                          >
-                            Выбрать
-                        </button>
-                        : <Counter
-                            addProduct={ () => handleIncrementProduct(card.id) }
-                            deleteProduct={ () => handleDecrementProduct(card.id) }
-                            count={ count }
-                          /> }
-                    <p>от { card.price }&#8381;</p>
+        <div className="card">
+            <div className="card__inner">
+                <div className="card__img-wrapper">
+                    <img
+                      src={ card.image }
+                      className="card__img"
+                      alt="..."
+                    />
+                </div>
+                <div className="card__content">
+                    <div className="card__title">{ card.title }</div>
+                    <div className="card__description">{ card.body }</div>
+                    <div className="card__bottom-row">
+                        { !isItemInBasket
+                            ? <div
+                                className="card__btn"
+                                onClick={ handleAddProduct }
+                              >
+                                Выбрать
+                            </div>
+                            : <Counter
+                                addProduct={ () => handleIncrementProduct(card.id) }
+                                deleteProduct={ () => handleDecrementProduct(card.id) }
+                                count={ count }
+                              /> }
+                        <div className="card__price">от { card.price }&#8381;</div>
+                    </div>
                 </div>
             </div>
         </div>

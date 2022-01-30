@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './basket.scss'
 import { useSelector } from 'react-redux'
-import { getProductItems } from '../store/basket'
-import BasketCard from '../components/BasketCard/basketCard'
-import BasketDelivery from '../components/BasketDelivery/basketDelivery'
-import { validator } from '../utils/validator'
+import { getProductItems } from '../../store/basket'
+import BasketCard from '../../components/BasketCard/basketCard'
+import BasketDelivery from '../../components/BasketDelivery/basketDelivery'
+import { validator } from '../../utils/validator'
 
 interface Card {
     id: string,
@@ -93,47 +93,47 @@ const Basket = () => {
     }
 
     return (
-        <div className="basket">
-            { items.length > 0
-                ? <>
-                    <div className="basket__title">Ваш заказ</div>
-                    <div className="basket__cards">
-                        { items.map((card: Card) => (
-                            <BasketCard
-                              key={ card.id }
-                              card={ card }
-                            />
-                        )) }
-                    </div>
-                    <div className="basket__total-price">
-                        Итог: { totalPrice } ₽
-                    </div>
-                    <div className="basket__delivery">
+        <div className="cart">
+            <div className="cart__inner">
+                { items.length > 0
+                    ? <>
+                        <div className="cart__heading">Ваш заказ</div>
+                        <div className="cart__order">
+                            { items.map((card: Card) => (
+                                <BasketCard
+                                  key={ card.id }
+                                  card={ card }
+                                />
+                            )) }
+                        </div>
+                        <div className="cart__total-price">
+                            Итог: { totalPrice } ₽
+                        </div>
                         <BasketDelivery
                           onChange={ handleChange }
                           data={ data }
                             // @ts-ignore
                           errors={ errors }
                         />
-                    </div>
-                    <div className="basket__checkout">
-                        <div className="basket__name">Оформить заказ</div>
-                        <div className="basket__checkout__content">
-                            <div className="basket__checkout__total-price">
-                                Итог: { totalPrice } ₽
-                            </div>
-                            <div
-                              className={ isValid ? 'basket__checkout__button' : 'basket__checkout__button-invalid' }
-                              onClick={ handleCheckout }
-                                // @ts-ignore
-                              disabled={ !isValid }
-                            >Оформить заказ
+                        <div className="cart__checkout">
+                            <div className="cart__name">Оформить заказ</div>
+                            <div className="cart__checkout__content">
+                                <div className="cart__checkout__total-price">
+                                    Итог: { totalPrice } ₽
+                                </div>
+                                <div
+                                  className={ isValid ? 'cart__checkout__button' : 'cart__checkout__button-invalid' }
+                                  onClick={ handleCheckout }
+                                    // @ts-ignore
+                                  disabled={ !isValid }
+                                >Оформить заказ
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </>
-                : <div className="basket__empty">Корзина пуста</div>
-            }
+                    </>
+                    : <div className="cart__empty">Корзина пуста</div>
+                }
+            </div>
         </div>
     )
 }

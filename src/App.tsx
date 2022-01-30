@@ -1,20 +1,22 @@
 import React, { FC } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Main from './leyouts/main'
-import Login from './leyouts/login'
+import Login from './leyouts/Login/login'
 import NavBar from './components/NavBar/navBar'
-import Basket from './leyouts/basket'
+import Basket from './leyouts/Basket/basket'
 import Pizza from './leyouts/pizza'
 import Sushi from './leyouts/sushi'
 import './App.scss'
 import Snacks from './leyouts/snacks'
 import Desserts from './leyouts/desserts'
 import Sauces from './leyouts/sauces'
+import Footer from './components/Footer/footer'
+import AccountUser from './components/AccountUser/accountUser'
 
 const App: FC = () => (
     <div className="container">
+        <NavBar />
         <div className="wrapper">
-            <NavBar />
             <Switch>
                 <Route
                   path="/"
@@ -49,8 +51,13 @@ const App: FC = () => (
                   path="/sauces"
                   component={ Sauces }
                 />
+                <Route
+                  path="/account"
+                  component={ AccountUser }
+                />
             </Switch>
         </div>
+        <Footer />
     </div>
 
 )

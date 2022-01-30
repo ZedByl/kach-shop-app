@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import './basketCard.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import Counter from '../Counter/counter'
 import { decrementCountProduct, getCountProduct, incrementCountProduct } from '../../store/basket' // eslint-disable-line
@@ -30,24 +29,27 @@ const BasketCard: FC<ProductCardProps> = ({ card }) => {
         dispatch(decrementCountProduct(id))
     }
     return (
-        <div className="basket-card__wrapper">
-            <div className="basket-card">
-                <div className="basket-card__left">
+        <div className="cart__item">
+            <div className="cart__item__inner">
+                <div className="cart__item__img-wrapper">
                     <img
                       src={ card.image }
-                      className="basket-card__image"
+                      className="cart__item__img"
                       alt="..."
                     />
-                    <h5 className="basket-card__title">{ card.title }</h5>
                 </div>
-                <div className="basket-card__right">
+                <div className="cart__item__content">
+                    <div className="cart__item__title">{ card.title }</div>
+                    <div className="cart__item__description">{ card.body }</div>
+                </div>
+                <div className="cart__item__amount">
                     <Counter
                       addProduct={ () => handleIncrementProduct(card.id) }
                       deleteProduct={ () => handleDecrementProduct(card.id) }
                       count={ count }
                     />
-                    <span className="basket-card__price">{ card.price * card.count } ₽</span>
                 </div>
+                <div className="cart__item__price">{ card.price * card.count } ₽</div>
             </div>
         </div>
     )
