@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import TextField from '../TextField/textField'
 import { validator } from '../../utils/validator'
+import { logIn } from '../../store/user'
+import history from '../../utils/history'
 
 // @ts-ignore
 const LoginForm = ({ onSubmit }) => {
+    const dispatch = useDispatch()
     const [data, setData] = useState({
         email: '',
         password: '',
@@ -40,7 +44,9 @@ const LoginForm = ({ onSubmit }) => {
         e.preventDefault()
         const isValid = validate()
         if (!isValid) return
-        console.log(data)
+        // @ts-ignore
+        const redirect = history.location.state ? history.location.state : '/'
+        dispatch(logIn({ payload: data, redirect }))
     }
     return (
         <div className="login__wrapper">

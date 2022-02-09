@@ -340,18 +340,17 @@ template{
 
 html,
 body{
+    height: 100%;
     box-sizing: border-box;
 }
 
 html{
-    height: 100%;
     -ms-overflow-style: scrollbar;
     -webkit-text-size-adjust: none;
     -ms-text-size-adjust: 100%;
 }
 
 body{
-    min-height: 100%;
     overflow-x: hidden;
     font-weight: 400;
     font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -427,4 +426,9 @@ a{
 .invalid{
     color: #E23535;
     opacity: 0.8;
+}
+
+.disable{
+    opacity: 0.4;
+    cursor: default;
 }

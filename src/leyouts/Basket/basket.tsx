@@ -124,8 +124,6 @@ const Basket = () => {
                                 <div
                                   className={ isValid ? 'cart__checkout__button' : 'cart__checkout__button-invalid' }
                                   onClick={ handleCheckout }
-                                    // @ts-ignore
-                                  disabled={ !isValid }
                                 >Оформить заказ
                                 </div>
                             </div>

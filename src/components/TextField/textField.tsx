@@ -4,7 +4,7 @@ import './textField.scss'
 interface TextFieldProps {
     label: string,
     name: string,
-    value: string,
+    value: string | number,
     onChange: any,
     error?: string,
     type?: string,

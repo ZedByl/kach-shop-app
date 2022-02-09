@@ -16,7 +16,7 @@ interface CardOrder {
     floor: string,
     apartment: string,
     intercom: string,
-    products: Array<Card>,
+    itemsProduct: Array<Card>,
 }
 
 interface Card {
@@ -39,7 +39,6 @@ const AccountCard: FC<ProductCardProps> = ({ card }) => {
     const toggleArrow = () => {
         setActiveInfo((prevState) => !prevState)
     }
-    console.log(card)
     return (
         <>
             <div
@@ -106,7 +105,7 @@ const AccountCard: FC<ProductCardProps> = ({ card }) => {
                     </div>
                     <div className="account__card__hidden account__card_border">
                         <div className="account__card__row">
-                            { card.products && card.products.map((product: Card) => (
+                            { card.itemsProduct && card.itemsProduct.map((product: Card) => (
                                 <div
                                   key={ product.id }
                                   className="account__card__item"

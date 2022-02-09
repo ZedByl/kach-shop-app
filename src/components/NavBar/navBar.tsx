@@ -4,9 +4,12 @@ import './navBar.scss'
 import { useSelector } from 'react-redux'
 import { getProductItems } from '../../store/basket'
 import logo from '../../assets/logo.svg'
+import user from '../../assets/user.svg'
+import { getIsLogIn } from '../../store/user'
 
 const NavBar: FC = () => {
     const items = useSelector(getProductItems())
+    const isLoggedIn = useSelector(getIsLogIn())
     // @ts-ignore
     const totalPrice = items.reduce((acc: number, product: object) => acc + product.price * product.count, 0) // eslint-disable-line
     return (
@@ -43,7 +46,18 @@ const NavBar: FC = () => {
                     <div className="header__button"><Link
                       to="/basket"
                                                     >{ totalPrice ? `${totalPrice} ₽` : 'Корзина' }</Link></div>
-                    <div className="header__button header__button_outline"><Link to="/login">Войти в аккаунт</Link>
+                    <div className="header__button header__button_outline">
+                        { isLoggedIn ? (
+                            <Link to="/account"><img
+                              src={ user }
+                              alt=""
+                              className="header__user__svg"
+                                                />Профиль</Link>
+                        ) : (<Link to="/login"><img
+                          src={ user }
+                          alt=""
+                          className="header__user__svg"
+                                               />Войти в аккаунт</Link>) }
                     </div>
                 </div>
             </div>

@@ -227,7 +227,7 @@ export const order = [
         floor: '2 этаж',
         apartment: 'офис 301',
         intercom: '4801#',
-        products: [
+        itemsProduct: [
             {
                 id: '18',
                 new: false,

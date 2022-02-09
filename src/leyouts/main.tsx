@@ -1,12 +1,10 @@
 import React from 'react'
 import ProductList from '../components/ProductList/productList'
 import {
- cards, sushi, snacks, desserts, sauces,
+    cards, sushi, snacks, desserts, sauces,
 } from '../api'
 
-const Main = () => {
-    console.log('main')
-    return (
+const Main = () => (
         <>
             <ProductList
               numberCard={ cards }
@@ -30,6 +28,5 @@ const Main = () => {
             />
         </>
     )
-}
 
 export default Main

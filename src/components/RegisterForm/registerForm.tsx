@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { validator } from '../../utils/validator'
 import TextField from '../TextField/textField'
+import { signUp } from '../../store/user'
+import history from '../../utils/history'
 
 // @ts-ignore
 const RegisterForm = ({ onSubmit }) => {
+    const dispatch = useDispatch()
     const [data, setData] = useState({
         email: '',
         name: '',
+        phone: '',
         password: '',
     })
     const [errors, setErrors] = useState({})
@@ -33,6 +38,18 @@ const RegisterForm = ({ onSubmit }) => {
             min: {
                 message: 'Имя должено состаять миниму из 3 символов',
                 value: 3,
+            },
+        },
+        phone: {
+            isRequired: {
+                message: 'Телефон обязателен для заполнения',
+            },
+            number: {
+                message: 'Нужно вводить только цифры',
+            },
+            min: {
+                message: 'Телефон должено состаять миниму из 11 цифр',
+                value: 11,
             },
         },
         password: {
@@ -65,7 +82,9 @@ const RegisterForm = ({ onSubmit }) => {
         e.preventDefault()
         const isValid = validate()
         if (!isValid) return
-        console.log(data)
+        // @ts-ignore
+        const redirect = history.location.state ? history.location.state : '/'
+        dispatch(signUp({ payload: data, redirect }))
     }
     return (
         <div className="login__wrapper">
@@ -86,6 +105,14 @@ const RegisterForm = ({ onSubmit }) => {
               onChange={ handleChange }
                 // @ts-ignore
               error={ errors.name }
+            />
+            <TextField
+              label="Телефон"
+              name="phone"
+              value={ data.phone }
+              onChange={ handleChange }
+                // @ts-ignore
+              error={ errors.phone }
             />
             <TextField
               label="Пароль"

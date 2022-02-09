@@ -11,36 +11,50 @@ interface BasketEntities {
     count: number
 }
 
-const commentsSlice = createSlice({
+const basketSlice = createSlice({
     name: 'basket',
     initialState: {
         entities: [] as Array<BasketEntities>,
     },
     reducers: {
+        initialProduct: (state, action) => {
+            state.entities = action.payload
+        },
         addProduct: (state, action) => {
             state.entities.push(action.payload)
+            localStorage.setItem('basket', JSON.stringify(state.entities))
         },
         deleteProduct: (state, actions) => {
             state.entities = state.entities.filter((product) => product.id !== actions.payload.id)
+            localStorage.removeItem('basket')
         },
         incrementCount: (state, actions) => {
             const newCounters = [...state.entities]
             const indexBasket = newCounters.findIndex((index) => index.id === actions.payload)
             newCounters[indexBasket].count++ // eslint-disable-line
+            localStorage.setItem('basket', JSON.stringify(state.entities))
         },
         decrementCount: (state, actions) => {
             const newCounters = [...state.entities]
             const indexBasket = newCounters.findIndex((index) => index.id === actions.payload)
-            if (newCounters[indexBasket].count !== 0) newCounters[indexBasket].count-- // eslint-disable-line
+            if (newCounters[indexBasket].count !== 0) {
+                newCounters[indexBasket].count-- // eslint-disable-line
+                localStorage.setItem('basket', JSON.stringify(state.entities))
+            }
             if (newCounters[indexBasket].count === 0) {
                 state.entities = state.entities.filter((product) => product.id !== actions.payload)
+                localStorage.setItem('basket', JSON.stringify(state.entities))
             }
         },
     },
 })
 
-const { reducer: basketReducer, actions } = commentsSlice
-const { addProduct, incrementCount, decrementCount } = actions // eslint-disable-line
+const { reducer: basketReducer, actions } = basketSlice
+const { initialProduct, addProduct, incrementCount, decrementCount } = actions // eslint-disable-line
+
+export const getProduct = (payload: Array<BasketEntities>) => (dispatch: any) => {
+    dispatch(initialProduct(payload))
+}
 
 export const setProductCart = (payload: BasketEntities) => (dispatch: any) => {
     dispatch(addProduct(payload))

@@ -1,6 +1,7 @@
 // @ts-ignore
 export function validator(data, config) {
     const errors = {}
+    const { oldPassword, newPassword, confirmThePassword } = data
     // @ts-ignore
     // eslint-disable-next-line consistent-return
     function validate(validateMethod, data, config) {
@@ -36,6 +37,14 @@ export function validator(data, config) {
             case 'number': {
                 const numberRegExp = /^\d+$/
                 statusValidate = !numberRegExp.test(data)
+                break
+            }
+            case 'confirmThePassword': {
+                if (newPassword !== confirmThePassword) statusValidate = true
+                break
+            }
+            case 'confirmTheNewPassword': {
+                if (newPassword === oldPassword) statusValidate = true
                 break
             }
             default:
