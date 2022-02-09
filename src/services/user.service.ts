@@ -4,10 +4,6 @@ import { getUserId } from './localStorage.service'
 const userEndpoint = 'user/'
 
 const userService = {
-    get: async () => {
-        const { data } = await httpService.get(userEndpoint)
-        return data
-    },
     create: async (payload: any) => {
         const { data } = await httpService.put(
             // eslint-disable-next-line no-underscore-dangle
@@ -25,6 +21,13 @@ const userService = {
     update: async (payload: any) => {
         const { data } = await httpService.patch(
             userEndpoint + getUserId(),
+            payload,
+        )
+        return data
+    },
+    resetPassword: async (payload: any) => {
+        const { data } = await httpService.patch(
+            `${userEndpoint}resetPassword/${getUserId()}`,
             payload,
         )
         return data

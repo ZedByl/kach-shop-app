@@ -1,8 +1,6 @@
 import React, { FC, useState } from 'react'
-import { useSelector } from 'react-redux'
 import pen from '../../assets/pen.svg'
 import TextField from '../TextField/textField'
-import { getCurrentUserData } from '../../store/user'
 
 interface PersonData {
     onChange: any,
@@ -22,7 +20,6 @@ interface DataAccount {
 const SettingsPersonalData: FC<PersonData> = ({
                                                   data, onChange, errors, onSubmit, isValid,
                                               }) => {
-    const currentUser = useSelector(getCurrentUserData())
     const [active, setActive] = useState(false)
     const toggleActiveLK = () => {
         setActive((prevState) => !prevState)
@@ -50,20 +47,20 @@ const SettingsPersonalData: FC<PersonData> = ({
                 >
                     <div className="account-settings__card__body-item">
                         <div className="account-settings__card__body-name">Имя*</div>
-                        <div className="account-settings__card__body-content">{ currentUser.name }</div>
+                        <div className="account-settings__card__body-content">{ data.name }</div>
                     </div>
                     <div className="account-settings__card__body-item">
                         <div className="account-settings__card__body-name">Номер телефона*</div>
-                        <div className="account-settings__card__body-content">{ currentUser.phone }</div>
+                        <div className="account-settings__card__body-content">{ data.phone }</div>
                     </div>
                     <div className="account-settings__card__body-item">
                         <div className="account-settings__card__body-name">Почта*</div>
-                        <div className="account-settings__card__body-content">{ currentUser.email }</div>
+                        <div className="account-settings__card__body-content">{ data.email }</div>
                     </div>
-                    { currentUser.dateOfBirth && (
+                    { data.dateOfBirth && (
                         <div className="account-settings__card__body-item">
                             <div className="account-settings__card__body-name">Дата рождения</div>
-                            <div className="account-settings__card__body-content">{ currentUser.dateOfBirth }</div>
+                            <div className="account-settings__card__body-content">{ data.dateOfBirth }</div>
                         </div>
                     ) }
                 </div>

@@ -4,7 +4,6 @@ import ProductCard from '../ProductCard/ProductCard'
 
 interface Cards {
     id: string,
-    new: boolean,
     image: string,
     title: string,
     body: string,

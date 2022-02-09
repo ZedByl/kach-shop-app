@@ -53,6 +53,10 @@ const userSlice = createSlice({
             state.auth = null
             state.dataLoaded = false
         },
+        userUpdateSeccessed: (state, action) => {
+            state.data = { ...action.payload }
+            state.isLoading = false
+        },
     },
 })
 
@@ -60,9 +64,12 @@ const { reducer: userReducer, actions } = userSlice
 
 const {
     authRequestSuccess, authRequestFailed, userRequested, userReceved, userRequestFiled, userLogOut,
+    userUpdateSeccessed,
 } = actions
 
 const authRequested = createAction('user/authRequested')
+const userUpdateRequested = createAction('user/userUpdateRequested')
+const userPasswordUpdateRequested = createAction('user/userPasswordUpdateRequested')
 
 export const logIn = ({ payload, redirect }: any) => async (dispatch: any) => {
     const { email, password } = payload
@@ -108,6 +115,27 @@ export const loadCurrentUser = () => async (dispatch: any) => {
     try {
         const { content } = await userService.getCurrentUser()
         dispatch(userReceved(content))
+    } catch (error) {
+        dispatch(userRequestFiled(error))
+    }
+}
+
+export const updateUserData = (payload: any) => async (dispatch: any) => {
+    dispatch(userUpdateRequested())
+    try {
+        const { content } = await userService.update(payload)
+        dispatch(userUpdateSeccessed(content))
+    } catch (error) {
+        dispatch(userRequestFiled(error))
+    }
+}
+
+export const updateUserPassword = (payload: any) => async (dispatch: any) => {
+    dispatch(userPasswordUpdateRequested())
+    try {
+        const { content } = await userService.resetPassword(payload)
+        dispatch(userUpdateSeccessed(content[0]))
+        setTokens(content[1])
     } catch (error) {
         dispatch(userRequestFiled(error))
     }

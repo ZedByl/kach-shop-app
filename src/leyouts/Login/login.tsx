@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './login.scss'
-import { useParams } from 'react-router-dom'
+import { useParams, withRouter } from 'react-router-dom'
 import LoginForm from '../../components/LoginForm/loginForm'
 import RegisterForm from '../../components/RegisterForm/registerForm'
 
@@ -22,4 +22,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default withRouter(Login)

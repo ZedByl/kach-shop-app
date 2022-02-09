@@ -78,13 +78,13 @@ const RegisterForm = ({ onSubmit }) => {
     }, [data])
     const isValid = Object.keys(errors).length === 0
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault()
         const isValid = validate()
         if (!isValid) return
         // @ts-ignore
         const redirect = history.location.state ? history.location.state : '/'
-        dispatch(signUp({ payload: data, redirect }))
+        await dispatch(signUp({ payload: data, redirect }))
     }
     return (
         <div className="login__wrapper">

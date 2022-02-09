@@ -1,7 +1,7 @@
 export const cards = [
     {
         id: '1',
-        new: false,
+
         image: 'https://i.picsum.photos/id/455/200/200.jpg?hmac=YZhCbBjCYF0ha5dR9ElToDVwWcw05w0e4pAv5S9nZYg',
         title: 'Чикен Сладкий Чили',
         body: 'Курица, Лук, Перец Халапеньо, Сыр Моцарелла, Томатный соу...',
@@ -11,7 +11,7 @@ export const cards = [
     },
     {
         id: '2',
-        new: false,
+
         image: 'https://i.picsum.photos/id/455/200/200.jpg?hmac=YZhCbBjCYF0ha5dR9ElToDVwWcw05w0e4pAv5S9nZYg',
         title: 'EASY PEASY огуречный расколбас',
         body: 'Курица, Лук, Перец Халапеньо...',
@@ -21,7 +21,7 @@ export const cards = [
     },
     {
         id: '3',
-        new: false,
+
         image: 'https://i.picsum.photos/id/455/200/200.jpg?hmac=YZhCbBjCYF0ha5dR9ElToDVwWcw05w0e4pAv5S9nZYg',
         title: 'EASY PEASY чикен а-ля хрен',
         body: 'Курица, Лук, Соус Карбонара,...',
@@ -31,7 +31,7 @@ export const cards = [
     },
     {
         id: '4',
-        new: false,
+
         image: 'https://i.picsum.photos/id/455/200/200.jpg?hmac=YZhCbBjCYF0ha5dR9ElToDVwWcw05w0e4pAv5S9nZYg',
         title: '4 сезона',
         body: 'Бекон, Ветчина, Грибы, Курица, Лук, Маслины, Огурцы мари...',
@@ -44,7 +44,7 @@ export const cards = [
 export const sushi = [
     {
         id: '5',
-        new: false,
+
         image: 'https://i.picsum.photos/id/351/200/300.jpg?hmac=OSQYmRI8IZkaMcC4ERotpBhe0AymVYajIIKPJFDzGBY',
         title: 'Филадельфия кранч',
         body: 'Семга, рис, сыр креметто, соус унаги, креветка, авокадо, чип...',
@@ -54,7 +54,7 @@ export const sushi = [
     },
     {
         id: '6',
-        new: false,
+
         image: 'https://i.picsum.photos/id/351/200/300.jpg?hmac=OSQYmRI8IZkaMcC4ERotpBhe0AymVYajIIKPJFDzGBY',
         title: 'Филадельфия крем-брюле',
         body: 'Сливочный сыр, семга татаки с тростниковым сахаром, соус у...',
@@ -64,7 +64,7 @@ export const sushi = [
     },
     {
         id: '7',
-        new: false,
+
         image: 'https://i.picsum.photos/id/351/200/300.jpg?hmac=OSQYmRI8IZkaMcC4ERotpBhe0AymVYajIIKPJFDzGBY',
         title: 'Супер Филадельфия',
         body: 'Действительно много семги, сливочный сыр, огурец, рис, н...',
@@ -74,7 +74,7 @@ export const sushi = [
     },
     {
         id: '8',
-        new: false,
+
         image: 'https://i.picsum.photos/id/351/200/300.jpg?hmac=OSQYmRI8IZkaMcC4ERotpBhe0AymVYajIIKPJFDzGBY',
         title: 'Тигр мама',
         body: 'Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик...',
@@ -87,7 +87,7 @@ export const sushi = [
 export const snacks = [
     {
         id: '9',
-        new: false,
+
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Филадельфия кранч',
         body: 'Семга, рис, сыр креметто, соус унаги, креветка, авокадо, чип...',
@@ -97,7 +97,7 @@ export const snacks = [
     },
     {
         id: '10',
-        new: false,
+
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Филадельфия крем-брюле',
         body: 'Сливочный сыр, семга татаки с тростниковым сахаром, соус у...',
@@ -107,7 +107,7 @@ export const snacks = [
     },
     {
         id: '11',
-        new: false,
+
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Супер Филадельфия',
         body: 'Действительно много семги, сливочный сыр, огурец, рис, н...',
@@ -117,7 +117,7 @@ export const snacks = [
     },
     {
         id: '12',
-        new: false,
+
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Тигр мама',
         body: 'Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик...',
@@ -130,7 +130,7 @@ export const snacks = [
 export const desserts = [
     {
         id: '13',
-        new: false,
+
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Филадельфия кранч',
         body: 'Семга, рис, сыр креметто, соус унаги, креветка, авокадо, чип...',
@@ -140,7 +140,7 @@ export const desserts = [
     },
     {
         id: '14',
-        new: false,
+
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Филадельфия крем-брюле',
         body: 'Сливочный сыр, семга татаки с тростниковым сахаром, соус у...',
@@ -150,7 +150,7 @@ export const desserts = [
     },
     {
         id: '15',
-        new: false,
+
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Супер Филадельфия',
         body: 'Действительно много семги, сливочный сыр, огурец, рис, н...',
@@ -160,7 +160,7 @@ export const desserts = [
     },
     {
         id: '16',
-        new: false,
+
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Тигр мама',
         body: 'Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик...',
@@ -173,7 +173,7 @@ export const desserts = [
 export const sauces = [
     {
         id: '17',
-        new: false,
+
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Филадельфия кранч',
         body: 'Семга, рис, сыр креметто, соус унаги, креветка, авокадо, чип...',
@@ -183,7 +183,7 @@ export const sauces = [
     },
     {
         id: '18',
-        new: false,
+
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Филадельфия крем-брюле',
         body: 'Сливочный сыр, семга татаки с тростниковым сахаром, соус у...',
@@ -193,7 +193,7 @@ export const sauces = [
     },
     {
         id: '19',
-        new: false,
+
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Супер Филадельфия',
         body: 'Действительно много семги, сливочный сыр, огурец, рис, н...',
@@ -203,7 +203,7 @@ export const sauces = [
     },
     {
         id: '20',
-        new: false,
+
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Тигр мама',
         body: 'Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик...',
@@ -230,7 +230,7 @@ export const order = [
         itemsProduct: [
             {
                 id: '18',
-                new: false,
+
                 image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
                 title: 'Филадельфия крем-брюле',
                 body: 'Сливочный сыр, семга татаки с тростниковым сахаром, соус у...',
@@ -240,7 +240,7 @@ export const order = [
             },
             {
                 id: '19',
-                new: false,
+
                 image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
                 title: 'Супер Филадельфия',
                 body: 'Действительно много семги, сливочный сыр, огурец, рис, н...',
@@ -250,7 +250,7 @@ export const order = [
             },
             {
                 id: '20',
-                new: false,
+
                 image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
                 title: 'Тигр мама',
                 body: 'Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик...',

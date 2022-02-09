@@ -9,7 +9,7 @@ interface DataAuth {
 }
 
 const httpAuth = axios.create({
-    baseURL: 'http://localhost:8080/api/',
+    baseURL: 'http://localhost:9000/api/',
     // params: {
     //     key: process.env.REACT_APP_FIREBASE_KEY,
     // },

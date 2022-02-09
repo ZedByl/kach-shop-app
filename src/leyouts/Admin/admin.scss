@@ -1,0 +1,57 @@
+.admin{
+    background: #FFFFFF;
+    padding: 30px 16px;
+    border-radius: 24px;
+    width: 850px;
+
+    &__wrapper{
+        margin: 0 auto;
+        width: 500px;
+
+        .text-field{
+            margin: 0 0 20px;
+        }
+    }
+
+    &__title{
+        font-size: 32px;
+        line-height: 40px;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    &__button{
+        padding: 14px 24px;
+        color: #ffffff;
+        background: #ff7010;
+        border-radius: 6px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    &__button-invalid{
+        padding: 14px 24px;
+        color: #ffffff;
+        background: #ff7010;
+        border-radius: 6px;
+        text-align: center;
+        cursor: pointer;
+        opacity: 0.7;
+    }
+
+    &__disclaimer{
+        font-size: 14px;
+        line-height: 18px;
+        opacity: 0.4;
+        text-align: center;
+        margin-bottom: 14px;
+    }
+
+    &__register{
+        font-size: 14px;
+        line-height: 18px;
+        text-align: center;
+    }
+
+}

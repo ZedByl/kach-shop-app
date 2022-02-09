@@ -40,13 +40,13 @@ const LoginForm = ({ onSubmit }) => {
         validate()
     }, [data])
     const isValid = Object.keys(errors).length === 0
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault()
         const isValid = validate()
         if (!isValid) return
         // @ts-ignore
         const redirect = history.location.state ? history.location.state : '/'
-        dispatch(logIn({ payload: data, redirect }))
+        await dispatch(logIn({ payload: data, redirect }))
     }
     return (
         <div className="login__wrapper">
@@ -66,7 +66,6 @@ const LoginForm = ({ onSubmit }) => {
               type="password"
               value={ data.password }
               onChange={ handleChange }
-              maxlength="11"
                 // @ts-ignore
               error={ errors.password }
             />

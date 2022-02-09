@@ -8,7 +8,6 @@ import { validator } from '../../utils/validator'
 
 interface Card {
     id: string,
-    new: boolean,
     image: string,
     title: string,
     body: string,

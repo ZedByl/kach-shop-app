@@ -5,7 +5,6 @@ import { decrementCountProduct, getCountProduct, incrementCountProduct } from '.
 
 interface Card {
     id: string,
-    new: boolean,
     image: string,
     title: string,
     body: string,

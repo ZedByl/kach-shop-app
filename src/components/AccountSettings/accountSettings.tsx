@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import './accountSettings.scss'
+import { useDispatch, useSelector } from 'react-redux'
 import SettingsPersonalData from '../SettingsPersonalData/settingsPersonalData'
 import SettingsPassword from '../SettingsPassword/settingsPassword'
 import { validator } from '../../utils/validator'
+import { getCurrentUserData, updateUserData, updateUserPassword } from '../../store/user'
 
 interface DataAccount {
     name: string,
@@ -18,11 +20,13 @@ interface DataPassword {
 }
 
 const AccountSettings = () => {
+    const currentUser = useSelector(getCurrentUserData())
+    const dispatch = useDispatch()
     const [dataAccount, setDataAccount] = useState<DataAccount>({
-        name: '',
-        email: '',
-        phone: '',
-        dateOfBirth: '',
+        name: currentUser.name || '',
+        email: currentUser.email || '',
+        phone: currentUser.phone || '',
+        dateOfBirth: currentUser.dateOfBirth || '',
     })
     const [dataPassword, setDataPassword] = useState<DataPassword>({
         oldPassword: '',
@@ -125,18 +129,18 @@ const AccountSettings = () => {
     }
     const isValidDataAccount = Object.keys(errorsAccount).length === 0
     const isValidPassword = Object.keys(errorsPassword).length === 0
-    const handleSubmitDataAccount = (e: any) => {
+    const handleSubmitDataAccount = async (e: any) => {
         e.preventDefault()
         const isValid = validateDataAccount()
         if (!isValid) return
-        console.log(dataAccount)
+        await dispatch(updateUserData(dataAccount))
     }
 
     const handleSubmitResetPassword = (e: any) => {
         e.preventDefault()
         const isValid = validateResetPassword()
         if (!isValid) return
-        console.log(dataPassword)
+        dispatch(updateUserPassword(dataPassword))
     }
 
     const handleChangeAccountData = (target: { name: string; value: string }) => {
