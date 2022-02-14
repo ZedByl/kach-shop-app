@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { AppDispatch } from './index'
 
 interface BasketEntities {
     id: string,
@@ -45,11 +46,14 @@ const basketSlice = createSlice({
                 localStorage.setItem('basket', JSON.stringify(state.entities))
             }
         },
+        clearBasketCounter: (state) => {
+            state.entities = []
+        },
     },
 })
 
 const { reducer: basketReducer, actions } = basketSlice
-const { initialProduct, addProduct, incrementCount, decrementCount } = actions // eslint-disable-line
+const { initialProduct, addProduct, incrementCount, decrementCount, clearBasketCounter } = actions // eslint-disable-line
 
 export const getProduct = (payload: Array<BasketEntities>) => (dispatch: any) => {
     dispatch(initialProduct(payload))
@@ -66,13 +70,16 @@ export const decrementCountProduct = (payload: string) => (dispatch: any) => {
     dispatch(decrementCount(payload))
 }
 
-// eslint-disable-next-line consistent-return
 export const getCountProduct = (productId: string) => (state: any) => {
     if (state.basket.entities) {
         // @ts-ignore
         return state.basket.entities.find((p: object) => p.id === productId)
     }
     return null
+}
+
+export const clearBasket = () => (dispatch: AppDispatch) => {
+    dispatch(clearBasketCounter())
 }
 
 export const getProductItems = () => (state: any) => state.basket.entities

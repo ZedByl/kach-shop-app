@@ -2,10 +2,15 @@ import React, { useState } from 'react'
 import './accountUser.scss'
 import { Link } from 'react-router-dom'
 import AccountCard from '../AccountCard/accountCard'
-import { order } from '../../api'
 import AccountSettings from '../AccountSettings/accountSettings'
+import { useAppSelector } from '../../hooks/redux'
+import { getCurrentUserData } from '../../store/user'
+import Loader from '../Loader/loader'
+import { getOrdersUser } from '../../store/order'
 
 const AccountUser = () => {
+    const currentUser = useAppSelector(getCurrentUserData())
+    const ordersUser = useAppSelector(getOrdersUser())
     const type = 'historyOrder'
     const [formType, setFormType] = useState(
         type === 'historyOrder' ? type : 'settings',
@@ -15,7 +20,7 @@ const AccountUser = () => {
     }
     return (
         <>
-            <div className="account">
+            { currentUser ? <div className="account">
                 <div className="account__inner">
                     <div className="account__header">
                         <h2 className="section-heading">Мой аккаунт</h2>
@@ -30,6 +35,13 @@ const AccountUser = () => {
                               onClick={ toggleFormType }
                             >Настройки
                             </div>
+                            { currentUser.role === 'admin'
+                                && <Link
+                                  to="/admin"
+                                  className="account__header-button"
+                                   >
+                                    Админка
+                                </Link> }
                             <Link
                               to="/logout"
                               className="account__header-button"
@@ -40,15 +52,15 @@ const AccountUser = () => {
 
                     { formType === 'historyOrder'
                         ? <div className="account__cards">
-                            { order && order.map((item) => (
+                            { ordersUser.length > 0 ? ordersUser.map((item: any) => (
                                 <AccountCard
-                                  key={ item.id }
+                                  key={ item.number }
                                   card={ item }
                                 />
-                            )) }
+                            )) : <h2 className="account__cards__not-orders">У вас пока нет заказов</h2> }
                         </div> : <AccountSettings /> }
                 </div>
-            </div>
+            </div> : <Loader /> }
         </>
     )
 }

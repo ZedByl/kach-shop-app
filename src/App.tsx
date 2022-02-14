@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { Route } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { ToastContainer } from 'react-toastify'
+import { useAppDispatch } from './hooks/redux'
 import Main from './leyouts/main'
 import Login from './leyouts/Login/login'
 import NavBar from './components/NavBar/navBar'
@@ -17,10 +18,14 @@ import { getProduct } from './store/basket'
 import Admin from './leyouts/Admin/admin'
 import AppLoader from './components/hoc/appLoader'
 import LogOut from './leyouts/logout'
-import ProtectedRoute from './components/RedirectRoute/redirectRoute'
+import ProtectedRoute from './components/RedirectRoute/protectedRoute'
+
+import 'react-toastify/dist/ReactToastify.css'
+import RedirectRoute from './components/RedirectRoute/redirectRoute'
+import Checkout from './leyouts/Checkout/checkout'
 
 const App: FC = () => {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     // @ts-ignore
     const basket: string = localStorage.getItem('basket')
     let productBasket = JSON.parse(basket)
@@ -78,6 +83,10 @@ const App: FC = () => {
                       path="/admin"
                       component={ Admin }
                     />
+                    <RedirectRoute
+                      path="/checkout"
+                      component={ Checkout }
+                    />
                     <Route
                       path="/"
                       exact
@@ -86,6 +95,8 @@ const App: FC = () => {
                 </div>
                 <Footer />
             </AppLoader>
+
+            <ToastContainer />
         </div>
     )
 }

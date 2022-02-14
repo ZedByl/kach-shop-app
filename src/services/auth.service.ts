@@ -1,5 +1,6 @@
 import axios from 'axios'
-import localStorageService from './localStorage.service'
+import localStorageService, { getUserId } from './localStorage.service'
+import httpService from './http.service'
 
 interface DataAuth {
     name?: string,
@@ -43,6 +44,13 @@ const authService = {
             grant_type: 'refresh_token',
             refresh_token: refreshToken,
         })
+        return data
+    },
+    resetPassword: async (payload: any) => {
+        const { data } = await httpService.patch(
+            `auth/resetPassword/${getUserId()}`,
+            payload,
+        )
         return data
     },
 }

@@ -1,11 +1,12 @@
 import { createAction, createSlice } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify'
+import { AppDispatch } from './index'
 import authService from '../services/auth.service'
 import {
     getAccessToken, getUserId, setTokens, removeAuthData,
     setAdmin,
 } from '../services/localStorage.service'
 import userService from '../services/user.service'
-import { generateAuthError } from '../utils/generateAuthError'
 import history from '../utils/history'
 
 const initialState = getAccessToken() ? {
@@ -63,15 +64,21 @@ const userSlice = createSlice({
 const { reducer: userReducer, actions } = userSlice
 
 const {
-    authRequestSuccess, authRequestFailed, userRequested, userReceved, userRequestFiled, userLogOut,
+    authRequestSuccess,
+    authRequestFailed,
+    userRequested,
+    userReceved,
+    userRequestFiled,
+    userLogOut,
     userUpdateSeccessed,
+    // addOrder,
 } = actions
 
 const authRequested = createAction('user/authRequested')
 const userUpdateRequested = createAction('user/userUpdateRequested')
 const userPasswordUpdateRequested = createAction('user/userPasswordUpdateRequested')
 
-export const logIn = ({ payload, redirect }: any) => async (dispatch: any) => {
+export const logIn = ({ payload, redirect }: any) => async (dispatch: AppDispatch) => {
     const { email, password } = payload
     dispatch(authRequested())
     try {
@@ -80,19 +87,19 @@ export const logIn = ({ payload, redirect }: any) => async (dispatch: any) => {
         if (email === process.env.REACT_APP_EMAIL_ADMIN) setAdmin(email)
         setTokens(data)
         history.push(redirect)
-    } catch (error) {
-        // @ts-ignore
-        const { code, message } = error.response.data.error
-        if (code === 400) {
-            const errorMessage = generateAuthError(message)
-            dispatch(authRequestFailed(errorMessage))
+    } catch (error: any) {
+        const { status, message } = error.response.data
+        if (status === 400) {
+            toast.error(message)
+            dispatch(authRequestFailed(message))
         } else {
-            dispatch(authRequestFailed(error))
+            dispatch(authRequestFailed(error.response.data))
+            toast.error('Что-то пошло не так')
         }
     }
 }
 
-export const signUp = ({ payload, redirect }: any) => async (dispatch: any) => {
+export const signUp = ({ payload, redirect }: any) => async (dispatch: AppDispatch) => {
     const {
         email, password, name, phone,
     } = payload
@@ -104,13 +111,19 @@ export const signUp = ({ payload, redirect }: any) => async (dispatch: any) => {
         setTokens(data)
         dispatch(authRequestSuccess({ userId: data.userId }))
         history.push(redirect)
-    } catch (error) {
-        // @ts-ignore
-        dispatch(authRequestFailed(error.message))
+    } catch (error: any) {
+        const { message, status } = await error.response.data
+        if (status === 400) {
+            dispatch(authRequestFailed(message))
+            toast.error(message)
+        } else {
+            dispatch(authRequestFailed(error))
+            toast.error('Что-то пошло не так')
+        }
     }
 }
 
-export const loadCurrentUser = () => async (dispatch: any) => {
+export const loadCurrentUser = () => async (dispatch: AppDispatch) => {
     dispatch(userRequested())
     try {
         const { content } = await userService.getCurrentUser()
@@ -120,24 +133,39 @@ export const loadCurrentUser = () => async (dispatch: any) => {
     }
 }
 
-export const updateUserData = (payload: any) => async (dispatch: any) => {
+export const updateUserData = (payload: any) => async (dispatch: AppDispatch) => {
     dispatch(userUpdateRequested())
     try {
         const { content } = await userService.update(payload)
         dispatch(userUpdateSeccessed(content))
-    } catch (error) {
-        dispatch(userRequestFiled(error))
+        toast.success('Данные пользователя обновлены')
+    } catch (error: any) {
+        const { status, message } = error.response.data
+        if (status === 400) {
+            dispatch(userRequestFiled(message))
+            toast.error(message)
+        } else {
+            dispatch(userRequestFiled(error.response.data))
+            toast.error('Что-то пошло не так')
+        }
     }
 }
 
-export const updateUserPassword = (payload: any) => async (dispatch: any) => {
+export const updateUserPassword = (payload: any) => async (dispatch: AppDispatch) => {
     dispatch(userPasswordUpdateRequested())
     try {
-        const { content } = await userService.resetPassword(payload)
+        const { content } = await authService.resetPassword(payload)
         dispatch(userUpdateSeccessed(content[0]))
         setTokens(content[1])
-    } catch (error) {
-        dispatch(userRequestFiled(error))
+        toast.success('Пароль успешно изменен')
+    } catch (error: any) {
+        const { status, message } = error.response.data
+        if (status === 400) {
+            toast.error(message)
+        } else {
+            dispatch(userRequestFiled(error.response.data))
+            toast.error('Что-то пошло не так')
+        }
     }
 }
 

@@ -47,6 +47,11 @@
     &__cards{
         width: 850px;
 
+        &__not-orders{
+            margin-top: 30px;
+            text-align: center;
+        }
+
         & .account__card{
             &:not(:last-child){
                 margin-bottom: 20px;
@@ -180,8 +185,8 @@
         }
 
         &__order-item{
-            max-width: 40px;
-            height: auto;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             border: 2px solid #fff;
 

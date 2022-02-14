@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './accountSettings.scss'
-import { useDispatch, useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import SettingsPersonalData from '../SettingsPersonalData/settingsPersonalData'
 import SettingsPassword from '../SettingsPassword/settingsPassword'
 import { validator } from '../../utils/validator'
@@ -20,8 +20,8 @@ interface DataPassword {
 }
 
 const AccountSettings = () => {
-    const currentUser = useSelector(getCurrentUserData())
-    const dispatch = useDispatch()
+    const currentUser = useAppSelector(getCurrentUserData())
+    const dispatch = useAppDispatch()
     const [dataAccount, setDataAccount] = useState<DataAccount>({
         name: currentUser.name || '',
         email: currentUser.email || '',

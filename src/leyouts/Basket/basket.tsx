@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './basket.scss'
-import { useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../hooks/redux'
+import { getCurrentUserData, getIsLogIn } from '../../store/user'
 import { getProductItems } from '../../store/basket'
 import BasketCard from '../../components/BasketCard/basketCard'
 import BasketDelivery from '../../components/BasketDelivery/basketDelivery'
 import { validator } from '../../utils/validator'
+import { createOrder } from '../../store/order'
 
 interface Card {
     id: string,
@@ -17,10 +19,15 @@ interface Card {
 }
 
 const Basket = () => {
-    const items = useSelector(getProductItems())
+    const dispatch = useAppDispatch()
+    const currentUser = useAppSelector(getCurrentUserData())
+    const items = useAppSelector(getProductItems())
+    const isLogginedIn = useAppSelector(getIsLogIn())
     // @ts-ignore
     const totalPrice = items.reduce((acc: number, product: object) => acc + product.price * product.count, 0) // eslint-disable-line
     const [data, setData] = useState({
+        // eslint-disable-next-line no-underscore-dangle
+        userId: '',
         name: '',
         email: '',
         phone: '',
@@ -30,7 +37,7 @@ const Basket = () => {
         floor: '',
         apartment: '',
         intercom: '',
-        pay: 'cash',
+        pay: 'Наличные',
         comment: '',
         itemsProduct: items,
         totalPrice,
@@ -81,6 +88,26 @@ const Basket = () => {
         return Object.keys(errors).length === 0
     }
     useEffect(() => {
+        if (currentUser && isLogginedIn) {
+            setData((prevState) => ({
+                ...prevState,
+                // eslint-disable-next-line no-underscore-dangle
+                userId: currentUser._id,
+                name: currentUser.name,
+                email: currentUser.email,
+                phone: currentUser.phone,
+                street: currentUser.street || '',
+                house: currentUser.house || '',
+                entrance: currentUser.entrance || '',
+                floor: currentUser.floor || '',
+                apartment: currentUser.apartment || '',
+                intercom: currentUser.intercom || '',
+                itemsProduct: items,
+                totalPrice,
+            }))
+        }
+    }, [currentUser])
+    useEffect(() => {
         validate()
     }, [data])
     const isValid = Object.keys(errors).length === 0
@@ -88,7 +115,7 @@ const Basket = () => {
         e.preventDefault()
         const isValid = validate()
         if (!isValid) return
-        console.log(data)
+        dispatch(createOrder(data))
     }
 
     return (
@@ -111,6 +138,7 @@ const Basket = () => {
                         <BasketDelivery
                           onChange={ handleChange }
                           data={ data }
+                          isLoggined={ isLogginedIn }
                             // @ts-ignore
                           errors={ errors }
                         />

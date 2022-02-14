@@ -3,6 +3,7 @@ const REFRESH_KEY = 'jwt-refresh-token'
 const EXPIRES_KEY = 'jwt-expires'
 const USERID_KEY = 'user-local-id'
 const ADMIN_KEY = 'admin-user'
+const BASKET = 'basket'
 
 interface Tokens {
     refreshToken: string,
@@ -44,6 +45,10 @@ export function setAdmin(email: string) {
     localStorage.setItem(ADMIN_KEY, email)
 }
 
+export function removeBasket() {
+    localStorage.removeItem(BASKET)
+}
+
 export function getAdmin() {
     return localStorage.getItem(ADMIN_KEY)
 }
@@ -63,5 +68,6 @@ const localStorageService = {
     getTokenExpiresDate,
     getUserId,
     removeAuthData,
+    removeBasket,
 }
 export default localStorageService

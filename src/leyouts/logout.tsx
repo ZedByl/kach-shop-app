@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch } from '../hooks/redux'
 import { logOut } from '../store/user'
 
 const LogOut = () => {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     useEffect(() => {
         dispatch(logOut())
     }, [])

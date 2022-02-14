@@ -17,14 +17,20 @@ export function displayDate(data: number) {
                 }
                 return '30 минут назад'
             }
-            return `${date.getHours()}:${date.getMinutes()}`
+            // eslint-disable-next-line @typescript-eslint/no-use-before-define
+            return `Сегодня в ${date.getHours()}:${helper(date.getMinutes())}${date.getMinutes()}`
         }
 
-        return `${date.getDay()} ${date.toLocaleString('default', {
-            month: 'long',
-        })}`
+        return date.toLocaleString('ru-RU')
     }
     return (
         `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
     )
+}
+
+function helper(min: number) {
+    if (min < 10) {
+        return 0
+    }
+    return ''
 }

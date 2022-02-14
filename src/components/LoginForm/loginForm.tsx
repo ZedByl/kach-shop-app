@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch } from '../../hooks/redux'
 import TextField from '../TextField/textField'
 import { validator } from '../../utils/validator'
 import { logIn } from '../../store/user'
@@ -7,7 +7,7 @@ import history from '../../utils/history'
 
 // @ts-ignore
 const LoginForm = ({ onSubmit }) => {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const [data, setData] = useState({
         email: '',
         password: '',

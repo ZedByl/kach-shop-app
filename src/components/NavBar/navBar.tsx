@@ -1,15 +1,15 @@
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
 import './navBar.scss'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../hooks/redux'
 import { getProductItems } from '../../store/basket'
 import logo from '../../assets/logo.svg'
 import user from '../../assets/user.svg'
 import { getIsLogIn } from '../../store/user'
 
 const NavBar: FC = () => {
-    const items = useSelector(getProductItems())
-    const isLoggedIn = useSelector(getIsLogIn())
+    const items = useAppSelector(getProductItems())
+    const isLoggedIn = useAppSelector(getIsLogIn())
     // @ts-ignore
     const totalPrice = items.reduce((acc: number, product: object) => acc + product.price * product.count, 0) // eslint-disable-line
     return (

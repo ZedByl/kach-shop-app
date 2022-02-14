@@ -25,12 +25,5 @@ const userService = {
         )
         return data
     },
-    resetPassword: async (payload: any) => {
-        const { data } = await httpService.patch(
-            `${userEndpoint}resetPassword/${getUserId()}`,
-            payload,
-        )
-        return data
-    },
 }
 export default userService

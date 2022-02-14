@@ -4,10 +4,11 @@ import RadioField from '../RadioField/radioField'
 import TextAreaField from '../TextAriaField/textAriaField'
 import './basketDelivery.scss'
 
-interface BasketDelivery {
+interface BasketDeliveryProps {
     data: Data,
     onChange: any,
-    errors: ErrorPreview
+    errors: ErrorPreview,
+    isLoggined: boolean
 }
 
 interface Data {
@@ -26,9 +27,11 @@ interface Data {
 
 type ErrorPreview = Omit<Data, 'pay' | 'comment' | 'house' | 'entrance' | 'floor' | 'apartment' | 'intercom'>;
 
-const BasketDelivery: FC<BasketDelivery> = ({ data, onChange, errors }) => (
+const BasketDelivery: FC<BasketDeliveryProps> = ({
+                                                     data, onChange, errors, isLoggined,
+                                                 }) => (
     <>
-        <div className="basket__delivery__block">
+        { !isLoggined && <div className="basket__delivery__block">
             <div className="basket__delivery__name">О вас</div>
             <div className="basket__delivery__data">
                 <TextField
@@ -55,7 +58,7 @@ const BasketDelivery: FC<BasketDelivery> = ({ data, onChange, errors }) => (
                   error={ errors.email }
                 />
             </div>
-        </div>
+        </div> }
         <div className="basket__delivery__block">
             <div className="basket__delivery__name">Доставка</div>
             <div className="basket__delivery__header">

@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+
 import Counter from '../Counter/counter'
-import { decrementCountProduct, getCountProduct, incrementCountProduct } from '../../store/basket' // eslint-disable-line
+import { decrementCountProduct, getCountProduct, incrementCountProduct } from '../../store/basket'
+import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 
 interface Card {
     id: string,
@@ -18,8 +19,8 @@ interface ProductCardProps {
 }
 
 const BasketCard: FC<ProductCardProps> = ({ card }) => {
-    const dispatch = useDispatch()
-    const countProduct = useSelector(getCountProduct(card.id))
+    const dispatch = useAppDispatch()
+    const countProduct = useAppSelector(getCountProduct(card.id))
     const count = countProduct ? countProduct.count : ''
     const handleIncrementProduct = (id: string) => {
         dispatch(incrementCountProduct(id))

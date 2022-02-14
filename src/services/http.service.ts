@@ -21,12 +21,7 @@ http.interceptors.request.use(
         // @ts-ignore
         if (refreshToken && expiresDate < Date.now()) {
             const data = await authService.refresh()
-            setTokens({
-                refreshToken: data.refresh_token,
-                accessToken: data.id_token,
-                expiresIn: data.expires_in,
-                userId: data.user_id,
-            })
+            setTokens(data)
         }
         const accessToken = getAccessToken()
         if (accessToken) {

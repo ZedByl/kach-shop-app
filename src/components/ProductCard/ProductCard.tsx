@@ -1,7 +1,11 @@
 import React, { FC } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import {
-    decrementCountProduct, getCountProduct, getProductItems, incrementCountProduct, setProductCart // eslint-disable-line
+    decrementCountProduct,
+    getCountProduct,
+    getProductItems,
+    incrementCountProduct,
+    setProductCart,
 } from '../../store/basket'
 import Counter from '../Counter/counter'
 import './productCard.scss'
@@ -21,10 +25,10 @@ interface ProductCardProps {
 }
 
 const ProductCard: FC<ProductCardProps> = ({ card }) => {
-    const dispatch = useDispatch()
-    const items = useSelector(getProductItems())
+    const dispatch = useAppDispatch()
+    const items = useAppSelector(getProductItems())
     const isItemInBasket = items.some((item: Card) => item.id === card.id)
-    const countProduct = useSelector(getCountProduct(card.id))
+    const countProduct = useAppSelector(getCountProduct(card.id))
     const count = countProduct ? countProduct.count : ''
     const handleAddProduct = (e: { stopPropagation: () => void }) => {
         e.stopPropagation()

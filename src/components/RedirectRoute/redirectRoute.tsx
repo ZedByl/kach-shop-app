@@ -1,22 +1,21 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { getIsLogIn } from '../../store/user'
+import { useAppSelector } from '../../hooks/redux'
+import { getOrderStatusLoading, getOrdersUser } from '../../store/order'
+import Loader from '../Loader/loader'
 
-const ProtectedRoute = ({ component: Component, children, ...rest }: any) => {
-    const isLogginedIn = useSelector(getIsLogIn())
-
+const RedirectRoute = ({ component: Component, children, ...rest }: any) => {
+    const isOrder = useAppSelector(getOrdersUser())
+    const isLoadingOrder = useAppSelector(getOrderStatusLoading())
+    if (isLoadingOrder) return <Loader />
     return (
         <Route
           { ...rest }
           render={ (props) => {
-                if (!isLogginedIn) {
+                if (isOrder.length === 0) {
                     return (
                         <Redirect
-                          to={ {
-                                pathname: '/login',
-                                state: props.location.pathname,
-                            } }
+                          to={ '/basket' }
                         />
                     )
                 }
@@ -26,4 +25,4 @@ const ProtectedRoute = ({ component: Component, children, ...rest }: any) => {
     )
 }
 
-export default ProtectedRoute
+export default RedirectRoute

@@ -1,7 +1,6 @@
 export const cards = [
     {
         id: '1',
-
         image: 'https://i.picsum.photos/id/455/200/200.jpg?hmac=YZhCbBjCYF0ha5dR9ElToDVwWcw05w0e4pAv5S9nZYg',
         title: 'Чикен Сладкий Чили',
         body: 'Курица, Лук, Перец Халапеньо, Сыр Моцарелла, Томатный соу...',
@@ -230,7 +229,6 @@ export const order = [
         itemsProduct: [
             {
                 id: '18',
-
                 image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
                 title: 'Филадельфия крем-брюле',
                 body: 'Сливочный сыр, семга татаки с тростниковым сахаром, соус у...',

@@ -1,27 +1,26 @@
 import React, { FC, useState } from 'react'
 import arrow from '../../assets/arrow.svg'
-import pizza from '../../assets/pizza.png'
 import { displayDate } from '../../utils/displayDate'
+import { countProduct } from '../../utils/countProduct'
 
 interface CardOrder {
-    id: string,
+    _id: string,
     number: number,
     date: number,
     totalPrice: number,
-    status: string,
     pay: string,
     street: string,
-    house: string,
-    entrance: string,
-    floor: string,
-    apartment: string,
-    intercom: string,
+    house?: string,
+    entrance?: string,
+    floor?: string,
+    apartment?: string,
+    intercom?: string,
     itemsProduct: Array<Card>,
 }
 
 interface Card {
     id: string,
-    image: string,
+    image?: string,
     title: string,
     body: string,
     type: string,
@@ -34,6 +33,7 @@ interface ProductCardProps {
 }
 
 const AccountCard: FC<ProductCardProps> = ({ card }) => {
+    const orders = card.itemsProduct
     const [activeInfo, setActiveInfo] = useState(false)
     const toggleArrow = () => {
         setActiveInfo((prevState) => !prevState)
@@ -59,11 +59,7 @@ const AccountCard: FC<ProductCardProps> = ({ card }) => {
                             <div className="account__card__info__text">{ card.totalPrice } ₽</div>
                         </div>
                         <div className="account__card__info">
-                            <div className="account__card__info__label">Статус</div>
-                            <div className="account__card__info__text">{ card.status }</div>
-                        </div>
-                        <div className="account__card__info">
-                            <div className="account__card__info__label">Оплачено</div>
+                            <div className="account__card__info__label">Оплата</div>
                             <div className="account__card__info__text">{ card.pay }</div>
                         </div>
                         <div className="account__card__info">
@@ -85,26 +81,19 @@ const AccountCard: FC<ProductCardProps> = ({ card }) => {
                             домофон { card.intercom }
                         </div>
                         <div className="account__card__order-items">
-                            <img
-                              className="account__card__order-item"
-                              src={ pizza }
-                              alt=""
-                            />
-                            <img
-                              className="account__card__order-item"
-                              src={ pizza }
-                              alt=""
-                            />
-                            <img
-                              className="account__card__order-item"
-                              src={ pizza }
-                              alt=""
-                            />
+                            { card.itemsProduct && card.itemsProduct.map((product: Card) => (
+                                <img
+                                  className="account__card__order-item"
+                                  src={ product.image }
+                                  key={ product.id }
+                                  alt=""
+                                />
+                            )) }
                         </div>
                     </div>
                     <div className="account__card__hidden account__card_border">
                         <div className="account__card__row">
-                            { card.itemsProduct && card.itemsProduct.map((product: Card) => (
+                            { orders && orders.map((product: Card) => (
                                 <div
                                   key={ product.id }
                                   className="account__card__item"
@@ -113,7 +102,7 @@ const AccountCard: FC<ProductCardProps> = ({ card }) => {
                                         <div className="account__card__item__img-wrapper">
                                             <img
                                               className="account__card__item__img"
-                                              src={ pizza }
+                                              src={ product.image }
                                               alt=""
                                             />
                                         </div>
@@ -122,7 +111,7 @@ const AccountCard: FC<ProductCardProps> = ({ card }) => {
                                     </div>
                                     <div className="account__card__item__description">{ product.body }
                                     </div>
-                                    <div className="account__card__item__amount">{ product.count } товар</div>
+                                    <div className="account__card__item__amount">{ countProduct(product.count) }</div>
                                     <div className="account__card__item__price">{ product.price * product.count } ₽
                                     </div>
                                 </div>
