@@ -1,0 +1,207 @@
+.account {
+  width: 850px;
+}
+.account__inner {
+  max-width: 850px;
+  margin: 0 auto;
+}
+.account__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.account__header-buttons {
+  display: flex;
+}
+.account__header-button {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  background-color: #FFFFFF;
+  color: #000000;
+  font-size: 14px;
+  line-height: 18px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.account__header-button:not(:last-child) {
+  margin-right: 16px;
+}
+.account__header a {
+  color: #191919;
+}
+.account__header .active-button {
+  background-color: #FF7010;
+  color: #fff;
+}
+.account__cards {
+  width: 850px;
+}
+.account__cards__not-orders {
+  margin-top: 30px;
+  text-align: center;
+}
+.account__cards .account__card:not(:last-child) {
+  margin-bottom: 20px;
+}
+.account__card {
+  box-sizing: border-box;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1px solid #F0F0F0;
+  background: #fff;
+}
+.account__card_active .account__card__hidden {
+  display: block;
+}
+.account__card_active .icon__arrow {
+  transform: rotate(180deg);
+  transition: 0.1s linear;
+}
+.account__card_border {
+  border-top: 1px solid #F0F0F0;
+}
+.account__card_success .account__card__info:first-child:before {
+  background-color: #E23535;
+}
+.account__card__row {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.account__card__row_top {
+  padding-top: 0;
+}
+.account__card__row_bottom {
+  padding-top: 16px;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.account__card__row_center {
+  display: flex;
+  justify-content: center;
+}
+.account__card__row_space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.account__card__row .account__card__item:not(:last-child) {
+  margin-bottom: 12px;
+}
+.account__card__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.account__card__info:first-child {
+  position: relative;
+  padding-left: 18px;
+}
+.account__card__info:first-child:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  border-radius: 24px;
+}
+.account__card__info__label {
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #A5A5A5;
+}
+.account__card__info__text {
+  font-size: 16px;
+  line-height: 22px;
+  color: #191919;
+}
+.account__card__info__text span {
+  margin-left: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #A5A5A5;
+}
+.account__card__info__button {
+  padding: 0;
+  border: 0;
+  background-color: #fff;
+  cursor: pointer;
+}
+.account__card__text {
+  font-size: 16px;
+  line-height: 22px;
+  color: #191919;
+}
+.account__card__hidden {
+  display: none;
+}
+.account__card__order-items {
+  display: flex;
+}
+.account__card__order-item {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.account__card__order-item:not(:last-child) {
+  margin-right: -10px;
+}
+.account__card__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.account__card__item__col {
+  display: flex;
+  align-items: center;
+}
+.account__card__item__img-wrapper {
+  max-width: 40px;
+  margin-right: 16px;
+}
+.account__card__item__img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+.account__card__item__title, .account__card__item__amount, .account__card__item__price {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}
+.account__card__item__title, .account__card__item__description {
+  color: #191919;
+  width: 250px;
+}
+.account__card__item__description {
+  font-size: 14px;
+  line-height: 18px;
+}
+.account__card__item__amount, .account__card__item__price {
+  color: #FF7010;
+}
+.account__card__item__amount {
+  padding: 10px 20px;
+  border-radius: 6px;
+  background: #FFEEE2;
+}
+.account__card__button {
+  padding: 0;
+  border: 0;
+  background-color: #fff;
+  font-size: 16px;
+  line-height: 22px;
+  color: #FF7010;
+  cursor: pointer;
+}
+
+.icon__arrow {
+  transition: 0.1s linear;
+}
+
+/*# sourceMappingURL=accountUser.css.map */

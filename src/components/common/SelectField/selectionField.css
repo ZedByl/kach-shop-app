@@ -1,0 +1,12 @@
+.selection__field {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.selection__field__title {
+  font-size: 14px;
+  line-height: 18px;
+  color: #a5a5a5;
+}
+
+/*# sourceMappingURL=selectionField.css.map */

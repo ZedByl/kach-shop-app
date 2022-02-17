@@ -1,0 +1,32 @@
+.add-products {
+  background: #FFFFFF;
+  padding: 30px 16px;
+  border-radius: 24px;
+  width: 850px;
+}
+.add-products__wrapper {
+  margin: 0 auto;
+  width: 500px;
+}
+.add-products__wrapper .text-field {
+  margin: 0 0 20px;
+}
+.add-products__button {
+  padding: 14px 24px;
+  color: #ffffff;
+  background: #ff7010;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+}
+.add-products__button-invalid {
+  padding: 14px 24px;
+  color: #ffffff;
+  background: #ff7010;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+/*# sourceMappingURL=addProduct.css.map */

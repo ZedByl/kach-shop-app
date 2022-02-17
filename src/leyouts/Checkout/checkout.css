@@ -1,0 +1,31 @@
+.checkout {
+  text-align: center;
+}
+.checkout__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 195px);
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 60px 0;
+}
+.checkout__header {
+  margin-bottom: 50px;
+}
+.checkout__body {
+  max-width: 320px;
+}
+.checkout__body-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  margin-bottom: 16px;
+}
+.checkout__body-description {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+/*# sourceMappingURL=checkout.css.map */

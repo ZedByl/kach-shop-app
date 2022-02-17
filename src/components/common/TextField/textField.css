@@ -1,0 +1,35 @@
+.text-field {
+  margin-right: 20px;
+  width: 100%;
+}
+.text-field:last-child {
+  margin: 0 0 16px;
+}
+.text-field__title {
+  font-size: 14px;
+  line-height: 18px;
+  color: #a5a5a5;
+}
+.text-field__input {
+  border: 1px solid #F0F0F0;
+  border-radius: 6px;
+  box-sizing: border-box;
+  padding: 10px 16px;
+  width: 100%;
+}
+.text-field__input:focus {
+  outline: none;
+}
+.text-field__input-invalid {
+  border: 1px solid #E23535;
+  border-radius: 6px;
+  box-sizing: border-box;
+  padding: 10px 16px;
+  color: #E23535;
+  width: 100%;
+}
+.text-field__input-invalid:focus {
+  outline: none;
+}
+
+/*# sourceMappingURL=textField.css.map */

@@ -1,0 +1,33 @@
+.footer {
+  margin-top: 30px;
+  border-top: 1px solid #F0F0F0;
+}
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+.footer__logo {
+  display: flex;
+  align-items: center;
+  margin-right: 48px;
+  text-decoration: none;
+}
+.footer__logo__svg {
+  margin-right: 16px;
+}
+.footer__logo__text {
+  font-size: 16px;
+  line-height: 18px;
+  color: #181818;
+}
+.footer__copyright {
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+/*# sourceMappingURL=footer.css.map */

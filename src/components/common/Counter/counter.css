@@ -1,0 +1,21 @@
+.counter {
+  display: flex;
+  align-items: center;
+  width: 91px;
+  background: #ffeee2;
+  border-radius: 6px;
+}
+.counter__button {
+  padding: 4px 6px;
+  color: #FF7010;
+  border: none;
+  cursor: pointer;
+}
+.counter__count {
+  font-size: 16px;
+  line-height: 20px;
+  padding: 0 20px;
+  color: #FF7010;
+}
+
+/*# sourceMappingURL=counter.css.map */

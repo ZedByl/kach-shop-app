@@ -1,0 +1,19 @@
+.basket__delivery__block {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.basket__delivery__name {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+.basket__delivery__data {
+  display: flex;
+}
+.basket__delivery__body {
+  display: flex;
+}
+
+/*# sourceMappingURL=basketDelivery.css.map */

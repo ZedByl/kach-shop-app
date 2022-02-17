@@ -1,0 +1,60 @@
+.login {
+  background: #FFFFFF;
+  padding: 60px 16px;
+  border-radius: 24px;
+  width: 850px;
+  margin-top: 50px;
+}
+.login__wrapper {
+  width: 320px;
+  margin: 0 auto;
+}
+.login__wrapper .text-field {
+  margin: 0 0 20px;
+}
+.login__title {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.login__description {
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.login__button {
+  padding: 14px 24px;
+  color: #ffffff;
+  background: #ff7010;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.login__button-invalid {
+  padding: 14px 24px;
+  color: #ffffff;
+  background: #ff7010;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+.login__disclaimer {
+  font-size: 14px;
+  line-height: 18px;
+  opacity: 0.4;
+  text-align: center;
+  margin-bottom: 14px;
+}
+.login__register {
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=login.css.map */
