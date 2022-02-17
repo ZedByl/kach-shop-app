@@ -6,10 +6,11 @@ import EditProduct from '../../components/ui/EditProducts/editProduct'
 import AddProduct from '../../components/ui/AddProduct/addProduct'
 import { getProductsList } from '../../store/products'
 import { Card } from '../../models/ICard'
+import config from '../../config.json'
 
 const Admin = () => {
     const adminUser = getAdmin()
-    if (adminUser !== process.env.REACT_APP_EMAIL_ADMIN) {
+    if (adminUser !== config.adminEmail) {
         history.push('/')
     }
     const listProduct = useAppSelector(getProductsList())

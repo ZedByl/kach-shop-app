@@ -8,6 +8,7 @@ import {
 } from '../services/localStorage.service'
 import userService from '../services/user.service'
 import history from '../utils/history'
+import config from '../config.json'
 
 const initialState = getAccessToken() ? {
     data: null,
@@ -83,7 +84,7 @@ export const logIn = ({ payload, redirect }: any) => async (dispatch: AppDispatc
     try {
         const data = await authService.logIn({ email, password })
         dispatch(authRequestSuccess({ userId: data.userId }))
-        if (email === process.env.REACT_APP_EMAIL_ADMIN) setAdmin(email)
+        if (email === config.apiEndpoint) setAdmin(email)
         setTokens(data)
         history.push(redirect)
     } catch (error: any) {

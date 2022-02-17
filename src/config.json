@@ -1,3 +1,4 @@
 {
-  "apiEndpoint": "http://localhost:9000/api/"
+  "apiEndpoint": "https://beckend-shop-app.herokuapp.com/api/",
+  "adminEmail": "beyasej220@koldpak.com"
 }

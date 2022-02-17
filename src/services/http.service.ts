@@ -1,13 +1,13 @@
 import axios from 'axios'
 import { toast } from 'react-toastify'
-import configFile from '../config.json'
+import config from '../config.json'
 import {
     getTokenExpiresDate, getRefreshToken, setTokens, getAccessToken,
 } from './localStorage.service'
 import authService from './auth.service'
 
 const http = axios.create({
-    baseURL: configFile.apiEndpoint,
+    baseURL: config.apiEndpoint,
 })
 
 interface transformData {
