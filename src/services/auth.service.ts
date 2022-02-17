@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { getRefreshToken, getUserId } from './localStorage.service'
 import httpService from './http.service'
+import config from '../config.json'
 
 interface DataAuth {
     name?: string,
@@ -10,7 +11,7 @@ interface DataAuth {
 }
 
 const httpAuth = axios.create({
-    baseURL: 'http://localhost:9000/api/',
+    baseURL: config.apiEndpoint,
 })
 
 const authService = {

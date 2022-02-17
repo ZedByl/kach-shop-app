@@ -84,7 +84,7 @@ export const logIn = ({ payload, redirect }: any) => async (dispatch: AppDispatc
     try {
         const data = await authService.logIn({ email, password })
         dispatch(authRequestSuccess({ userId: data.userId }))
-        if (email === config.apiEndpoint) setAdmin(email)
+        if (email === config.adminEmail) setAdmin(email)
         setTokens(data)
         history.push(redirect)
     } catch (error: any) {
