@@ -1,22 +1,13 @@
 import { createAction, createSlice } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
 import productService from '../services/products.service'
-import { AppDispatch } from './index'
-
-interface BasketEntities {
-    id: string,
-    image?: string,
-    title: string,
-    body: string,
-    type: string,
-    price: number,
-    count: number
-}
+import { AppDispatch, AppStore } from './index'
+import { Basket } from '../models/IBascet'
 
 const productsSlice = createSlice({
     name: 'products',
     initialState: {
-        entities: [] as Array<BasketEntities>,
+        entities: [] as Array<Basket>,
         isLoading: true,
         error: null,
     },
@@ -36,13 +27,13 @@ const productsSlice = createSlice({
             state.entities.push(action.payload)
         },
         updateProduct: (state, action) => {
-            // @ts-ignore
-            // eslint-disable-next-line max-len
-            state.entities = state.entities.map((product) => (product._id === action.payload._id ? action.payload : product))
+            state.entities = state.entities.map((product: Basket) => (
+                product._id === action.payload._id ? action.payload : product
+            ))
         },
         removeProduct: (state, action) => {
-            // @ts-ignore
-            state.entities = state.entities.filter((product) => product._id !== action.payload)
+            state.entities = state.entities.filter((product: Basket) => (
+                product._id !== action.payload))
         },
     },
 })
@@ -65,8 +56,7 @@ export const loadProductsList = () => async (dispatch: AppDispatch) => {
     try {
         const { content } = await productService.getProducts()
         dispatch(productsReceved(content))
-    } catch (error) {
-        // @ts-ignore
+    } catch (error: any) {
         dispatch(productsRequestFiled(error.message))
     }
 }
@@ -77,8 +67,7 @@ export const createProduct = (payload: any) => async (dispatch: AppDispatch) => 
         const { content } = await productService.create(payload)
         dispatch(addProduct(content))
         toast.success(`Товар ${content.title} создан`)
-    } catch (error) {
-        // @ts-ignore
+    } catch (error: any) {
         dispatch(productsRequestFiled(error.message))
         toast.error('Что-то пошло не так')
     }
@@ -90,8 +79,7 @@ export const changeProduct = (payload: any) => async (dispatch: AppDispatch) => 
         const { content } = await productService.updateProduct(payload)
         dispatch(updateProduct(content))
         toast.success(`Товар ${content.title} изменён`)
-    } catch (error) {
-        // @ts-ignore
+    } catch (error: any) {
         dispatch(productsRequestFiled(error.message))
         toast.error('Что-то пошло не так')
     }
@@ -103,13 +91,12 @@ export const deleteProduct = (payload: any) => async (dispatch: AppDispatch) => 
         await productService.removeProduct(payload)
         dispatch(removeProduct(payload))
         toast.success('Товар удален')
-    } catch (error) {
-        // @ts-ignore
+    } catch (error: any) {
         dispatch(productsRequestFiled(error.message))
         toast.error('Что-то пошло не так')
     }
 }
 
-export const getProductsList = () => (state: any) => state.products.entities
+export const getProductsList = () => (state: AppStore) => state.products.entities
 
 export default productsReducer

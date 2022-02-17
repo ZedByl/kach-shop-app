@@ -1,6 +1,6 @@
 import { createAction, createSlice } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
-import { AppDispatch } from './index'
+import { AppDispatch, AppStore } from './index'
 import authService from '../services/auth.service'
 import {
     getAccessToken, getUserId, setTokens, removeAuthData,
@@ -71,7 +71,6 @@ const {
     userRequestFiled,
     userLogOut,
     userUpdateSeccessed,
-    // addOrder,
 } = actions
 
 const authRequested = createAction('user/authRequested')
@@ -169,16 +168,16 @@ export const updateUserPassword = (payload: any) => async (dispatch: AppDispatch
     }
 }
 
-export const logOut = () => (dispatch: any) => {
+export const logOut = () => (dispatch: AppDispatch) => {
     removeAuthData()
     dispatch(userLogOut())
     history.push('/')
 }
 
-export const getIsLogIn = () => (state: any) => state.user.isLogginedIn
+export const getIsLogIn = () => (state: AppStore) => state.user.isLogginedIn
 
-export const getUserLoadingStatus = () => (state: any) => state.user.isLoading
+export const getUserLoadingStatus = () => (state: AppStore) => state.user.isLoading
 
-export const getCurrentUserData = () => (state: any) => state.user.data
+export const getCurrentUserData = () => (state: AppStore) => state.user.data
 
 export default userReducer

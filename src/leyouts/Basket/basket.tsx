@@ -8,6 +8,7 @@ import BasketDelivery from '../../components/ui/BasketDelivery/basketDelivery'
 import { validator } from '../../utils/validator'
 import { createOrder } from '../../store/order'
 import { Card } from '../../models/ICard'
+import { countTotalPrice } from '../../utils/countTotalPrice'
 
 const Basket = () => {
     const dispatch = useAppDispatch()
@@ -15,7 +16,7 @@ const Basket = () => {
     const items = useAppSelector(getProductItems())
     const isLogginedIn = useAppSelector(getIsLogIn())
 
-    const totalPrice = items.reduce((acc: number, product: Card): number => acc + product.price * product.count, 0) // eslint-disable-line
+    const totalPrice = countTotalPrice(items)
     const [data, setData] = useState({
         userId: '',
         name: '',

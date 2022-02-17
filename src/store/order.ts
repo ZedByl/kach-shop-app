@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
-import { AppDispatch } from './index'
+import { AppDispatch, AppStore } from './index'
 import history from '../utils/history'
 import orderService from '../services/order.service'
 import { removeBasket } from '../services/localStorage.service'
@@ -72,8 +72,7 @@ export const loadOrderListByUser = (payload: Array<string>) => async (dispatch: 
     try {
         const { content } = await orderService.getAllOrders(payload)
         dispatch(orderReceved(content))
-    } catch (error) {
-        // @ts-ignore
+    } catch (error: any) {
         dispatch(orderRequestFiled(error.message))
     }
 }
@@ -97,8 +96,8 @@ export const createOrder = (payload: any) => async (dispatch: AppDispatch) => {
     }
 }
 
-export const getOrdersUser = () => (state: any) => state.orders.entities
+export const getOrdersUser = () => (state: AppStore) => state.orders.entities
 
-export const getOrderStatusLoading = () => (state: any) => state.orders.isLoading
+export const getOrderStatusLoading = () => (state: AppStore) => state.orders.isLoading
 
 export default orderReducer

@@ -55,8 +55,10 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'no-shadow': 0,
         'indent': 'off',
+        'no-plusplus': 'off',
+        'no-unused-expressions': 'off',
         'no-useless-constructor': 'off',
-        'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['state'] }],
+        'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['state', 'config', 'res'] }],
         'no-use-before-define': 'off',
         semi: ['error', 'never']
     },

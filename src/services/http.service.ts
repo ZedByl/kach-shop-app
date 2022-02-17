@@ -25,9 +25,7 @@ http.interceptors.request.use(
         }
         const accessToken = getAccessToken()
         if (accessToken) {
-            // eslint-disable-next-line no-param-reassign
             config.params = { ...config.params, auth: accessToken }
-            // eslint-disable-next-line no-param-reassign
             config.headers = { ...config.headers, authorization: accessToken }
         }
         return config
@@ -46,7 +44,6 @@ function transormData(data: transformData) {
 
 http.interceptors.response.use(
     (res) => {
-        // eslint-disable-next-line no-param-reassign
         res.data = { content: transormData(res.data) }
         return res
     },

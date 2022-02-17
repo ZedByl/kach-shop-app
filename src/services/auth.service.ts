@@ -1,5 +1,5 @@
 import axios from 'axios'
-import localStorageService, { getUserId } from './localStorage.service'
+import { getRefreshToken, getUserId } from './localStorage.service'
 import httpService from './http.service'
 
 interface DataAuth {
@@ -11,9 +11,6 @@ interface DataAuth {
 
 const httpAuth = axios.create({
     baseURL: 'http://localhost:9000/api/',
-    // params: {
-    //     key: process.env.REACT_APP_FIREBASE_KEY,
-    // },
 })
 
 const authService = {
@@ -38,8 +35,7 @@ const authService = {
         return data
     },
     refresh: async () => {
-        // eslint-disable-next-line import/no-named-as-default-member
-        const refreshToken = localStorageService.getRefreshToken()
+        const refreshToken = getRefreshToken()
         const { data } = await httpAuth.post('auth/token', {
             grant_type: 'refresh_token',
             refresh_token: refreshToken,

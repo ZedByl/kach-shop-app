@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { AppDispatch } from './index'
+import { AppDispatch, AppStore } from './index'
 import categoryService from '../services/category.service'
 
 interface BasketEntities {
@@ -51,8 +51,8 @@ export const loadCategoryList = () => async (dispatch: AppDispatch) => {
     }
 }
 
-export const getCategoryList = () => (state: any) => state.categories.entities
+export const getCategoryList = () => (state: AppStore) => state.categories.entities
 
-export const getStatusLoadingCategory = () => (state: any) => state.categories.isLoading
+export const getStatusLoadingCategory = () => (state: AppStore) => state.categories.isLoading
 
 export default categoryReducer

@@ -1,13 +1,15 @@
 import React, { FC } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import './navBar.scss'
+import { HashLink } from 'react-router-hash-link'
 import { useAppSelector } from '../../../hooks/redux'
 import { getProductItems } from '../../../store/basket'
-import logo from '../../../assets/logo.svg'
-import user from '../../../assets/user.svg'
 import { getIsLogIn } from '../../../store/user'
 import { getCategoryList } from '../../../store/category'
 import { countTotalPrice } from '../../../utils/countTotalPrice'
+
+import './navBar.scss'
+import logo from '../../../assets/logo.svg'
+import user from '../../../assets/user.svg'
 
 const NavBar: FC = () => {
     const items = useAppSelector(getProductItems())
@@ -35,7 +37,8 @@ const NavBar: FC = () => {
                           key={ category.categoryId }
                         >
                             <div className="header__menu__link">
-                                { pathname !== '/' ? <Link to="/">{ category.title }</Link>
+                                { pathname !== '/'
+                                    ? <HashLink to={ `/#${category.categoryId}` }>{ category.title }</HashLink>
                                     : <a href={ `#${category.categoryId}` }>{ category.title }</a> }
                             </div>
                         </li>

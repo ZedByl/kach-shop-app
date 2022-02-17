@@ -11,7 +11,7 @@ import Footer from './components/ui/Footer/footer'
 import AccountUser from './leyouts/AccountUser/accountUser'
 import { getProduct } from './store/basket'
 import Admin from './leyouts/Admin/admin'
-import AppLoader from './components/ui/hoc/appLoader'
+import AppLoader from './components/ui/AppLoader/appLoader'
 import LogOut from './leyouts/logout'
 import ProtectedRoute from './components/common/RedirectRoute/protectedRoute'
 

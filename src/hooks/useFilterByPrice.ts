@@ -6,7 +6,6 @@ export const useFilterByPrice = (data: any[], prices: any) => {
             ({ price }: any) => prices.minPrice <= parseInt(price, 10)
                 && parseInt(price, 10) <= prices.maxPrice,
         )
-        // eslint-disable-next-line no-unused-expressions
         filteredProducts.length && sortedArray.push({ ...category, products: filteredProducts })
     })
 

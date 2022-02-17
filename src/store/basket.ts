@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { AppDispatch } from './index'
+import { AppDispatch, AppStore } from './index'
 import { Card } from '../models/ICard'
 
 const basketSlice = createSlice({
@@ -22,14 +22,14 @@ const basketSlice = createSlice({
         incrementCount: (state, actions) => {
             const newCounters = [...state.entities]
             const indexBasket = newCounters.findIndex((index) => index._id === actions.payload)
-            newCounters[indexBasket].count++ // eslint-disable-line
+            newCounters[indexBasket].count++
             localStorage.setItem('basket', JSON.stringify(state.entities))
         },
         decrementCount: (state, actions) => {
             const newCounters = [...state.entities]
             const indexBasket = newCounters.findIndex((index) => index._id === actions.payload)
             if (newCounters[indexBasket].count !== 0) {
-                newCounters[indexBasket].count-- // eslint-disable-line
+                newCounters[indexBasket].count--
                 localStorage.setItem('basket', JSON.stringify(state.entities))
             }
             if (newCounters[indexBasket].count === 0) {
@@ -44,27 +44,32 @@ const basketSlice = createSlice({
 })
 
 const { reducer: basketReducer, actions } = basketSlice
-const { initialProduct, addProduct, incrementCount, decrementCount, clearBasketCounter } = actions // eslint-disable-line
+const {
+    initialProduct,
+    addProduct,
+    incrementCount,
+    decrementCount,
+    clearBasketCounter,
+} = actions
 
-export const getProduct = (payload: Array<Card>) => (dispatch: any) => {
+export const getProduct = (payload: Array<Card>) => (dispatch: AppDispatch) => {
     dispatch(initialProduct(payload))
 }
 
-export const setProductCart = (payload: Card) => (dispatch: any) => {
+export const setProductCart = (payload: Card) => (dispatch: AppDispatch) => {
     dispatch(addProduct(payload))
 }
 
-export const incrementCountProduct = (payload: string) => (dispatch: any) => {
+export const incrementCountProduct = (payload: string) => (dispatch: AppDispatch) => {
     dispatch(incrementCount(payload))
 }
-export const decrementCountProduct = (payload: string) => (dispatch: any) => {
+export const decrementCountProduct = (payload: string) => (dispatch: AppDispatch) => {
     dispatch(decrementCount(payload))
 }
 
-export const getCountProduct = (productId: string) => (state: any) => {
+export const getCountProduct = (productId: string) => (state: AppStore) => {
     if (state.basket.entities) {
-        // @ts-ignore
-        return state.basket.entities.find((p: object) => p._id === productId)
+        return state.basket.entities.find((p: Card) => p._id === productId)
     }
     return null
 }
@@ -73,6 +78,6 @@ export const clearBasket = () => (dispatch: AppDispatch) => {
     dispatch(clearBasketCounter())
 }
 
-export const getProductItems = () => (state: any) => state.basket.entities
+export const getProductItems = () => (state: AppStore) => state.basket.entities
 
 export default basketReducer
