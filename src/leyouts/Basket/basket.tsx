@@ -3,30 +3,20 @@ import './basket.scss'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { getCurrentUserData, getIsLogIn } from '../../store/user'
 import { getProductItems } from '../../store/basket'
-import BasketCard from '../../components/BasketCard/basketCard'
-import BasketDelivery from '../../components/BasketDelivery/basketDelivery'
+import BasketCard from '../../components/ui/BasketCard/basketCard'
+import BasketDelivery from '../../components/ui/BasketDelivery/basketDelivery'
 import { validator } from '../../utils/validator'
 import { createOrder } from '../../store/order'
-
-interface Card {
-    id: string,
-    image: string,
-    title: string,
-    body: string,
-    type: string,
-    price: number,
-    count: number
-}
+import { Card } from '../../models/ICard'
 
 const Basket = () => {
     const dispatch = useAppDispatch()
     const currentUser = useAppSelector(getCurrentUserData())
     const items = useAppSelector(getProductItems())
     const isLogginedIn = useAppSelector(getIsLogIn())
-    // @ts-ignore
-    const totalPrice = items.reduce((acc: number, product: object) => acc + product.price * product.count, 0) // eslint-disable-line
+
+    const totalPrice = items.reduce((acc: number, product: Card): number => acc + product.price * product.count, 0) // eslint-disable-line
     const [data, setData] = useState({
-        // eslint-disable-next-line no-underscore-dangle
         userId: '',
         name: '',
         email: '',
@@ -68,9 +58,6 @@ const Basket = () => {
             isRequired: {
                 message: 'Телефон обязателен для заполнения',
             },
-            number: {
-                message: 'Нужно вводить только цифры',
-            },
             min: {
                 message: 'Телефон должено состаять миниму из 11 цифр',
                 value: 11,
@@ -91,7 +78,6 @@ const Basket = () => {
         if (currentUser && isLogginedIn) {
             setData((prevState) => ({
                 ...prevState,
-                // eslint-disable-next-line no-underscore-dangle
                 userId: currentUser._id,
                 name: currentUser.name,
                 email: currentUser.email,
@@ -127,7 +113,7 @@ const Basket = () => {
                         <div className="cart__order">
                             { items.map((card: Card) => (
                                 <BasketCard
-                                  key={ card.id }
+                                  key={ card._id }
                                   card={ card }
                                 />
                             )) }

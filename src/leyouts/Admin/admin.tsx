@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useAppSelector } from '../../hooks/redux'
 import history from '../../utils/history'
 import { getAdmin } from '../../services/localStorage.service'
-import EditProducts from '../../components/EditProducts/editProduct'
-import AddProduct from '../../components/AddProduct/addProduct'
+import EditProduct from '../../components/ui/EditProducts/editProduct'
+import AddProduct from '../../components/ui/AddProduct/addProduct'
 import { getProductsList } from '../../store/products'
 import { Card } from '../../models/ICard'
 
@@ -45,8 +45,7 @@ const Admin = () => {
                     ? <div className="account__cards">
                         {/* eslint-disable-next-line react/jsx-key */ }
                         { listProduct && listProduct.map((item: Card) => (
-                            <EditProducts
-                                // eslint-disable-next-line no-underscore-dangle
+                            <EditProduct
                               key={ item._id }
                               card={ item }
                             />

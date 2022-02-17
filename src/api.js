@@ -1,6 +1,6 @@
 export const cards = [
     {
-        id: '1',
+        _id: '1',
         image: 'https://i.picsum.photos/id/455/200/200.jpg?hmac=YZhCbBjCYF0ha5dR9ElToDVwWcw05w0e4pAv5S9nZYg',
         title: 'Чикен Сладкий Чили',
         body: 'Курица, Лук, Перец Халапеньо, Сыр Моцарелла, Томатный соу...',
@@ -9,7 +9,7 @@ export const cards = [
         count: 1,
     },
     {
-        id: '2',
+        _id: '2',
 
         image: 'https://i.picsum.photos/id/455/200/200.jpg?hmac=YZhCbBjCYF0ha5dR9ElToDVwWcw05w0e4pAv5S9nZYg',
         title: 'EASY PEASY огуречный расколбас',
@@ -19,7 +19,7 @@ export const cards = [
         count: 1,
     },
     {
-        id: '3',
+        _id: '3',
 
         image: 'https://i.picsum.photos/id/455/200/200.jpg?hmac=YZhCbBjCYF0ha5dR9ElToDVwWcw05w0e4pAv5S9nZYg',
         title: 'EASY PEASY чикен а-ля хрен',
@@ -29,7 +29,7 @@ export const cards = [
         count: 1,
     },
     {
-        id: '4',
+        _id: '4',
 
         image: 'https://i.picsum.photos/id/455/200/200.jpg?hmac=YZhCbBjCYF0ha5dR9ElToDVwWcw05w0e4pAv5S9nZYg',
         title: '4 сезона',
@@ -42,7 +42,7 @@ export const cards = [
 
 export const sushi = [
     {
-        id: '5',
+        _id: '5',
 
         image: 'https://i.picsum.photos/id/351/200/300.jpg?hmac=OSQYmRI8IZkaMcC4ERotpBhe0AymVYajIIKPJFDzGBY',
         title: 'Филадельфия кранч',
@@ -52,7 +52,7 @@ export const sushi = [
         count: 1,
     },
     {
-        id: '6',
+        _id: '6',
 
         image: 'https://i.picsum.photos/id/351/200/300.jpg?hmac=OSQYmRI8IZkaMcC4ERotpBhe0AymVYajIIKPJFDzGBY',
         title: 'Филадельфия крем-брюле',
@@ -62,7 +62,7 @@ export const sushi = [
         count: 1,
     },
     {
-        id: '7',
+        _id: '7',
 
         image: 'https://i.picsum.photos/id/351/200/300.jpg?hmac=OSQYmRI8IZkaMcC4ERotpBhe0AymVYajIIKPJFDzGBY',
         title: 'Супер Филадельфия',
@@ -72,7 +72,7 @@ export const sushi = [
         count: 1,
     },
     {
-        id: '8',
+        _id: '8',
 
         image: 'https://i.picsum.photos/id/351/200/300.jpg?hmac=OSQYmRI8IZkaMcC4ERotpBhe0AymVYajIIKPJFDzGBY',
         title: 'Тигр мама',
@@ -85,7 +85,7 @@ export const sushi = [
 
 export const snacks = [
     {
-        id: '9',
+        _id: '9',
 
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Филадельфия кранч',
@@ -95,7 +95,7 @@ export const snacks = [
         count: 1,
     },
     {
-        id: '10',
+        _id: '10',
 
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Филадельфия крем-брюле',
@@ -105,7 +105,7 @@ export const snacks = [
         count: 1,
     },
     {
-        id: '11',
+        _id: '11',
 
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Супер Филадельфия',
@@ -115,7 +115,7 @@ export const snacks = [
         count: 1,
     },
     {
-        id: '12',
+        _id: '12',
 
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Тигр мама',
@@ -128,7 +128,7 @@ export const snacks = [
 
 export const desserts = [
     {
-        id: '13',
+        _id: '13',
 
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Филадельфия кранч',
@@ -138,7 +138,7 @@ export const desserts = [
         count: 1,
     },
     {
-        id: '14',
+        _id: '14',
 
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Филадельфия крем-брюле',
@@ -148,7 +148,7 @@ export const desserts = [
         count: 1,
     },
     {
-        id: '15',
+        _id: '15',
 
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Супер Филадельфия',
@@ -158,7 +158,7 @@ export const desserts = [
         count: 1,
     },
     {
-        id: '16',
+        _id: '16',
 
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Тигр мама',
@@ -171,7 +171,7 @@ export const desserts = [
 
 export const sauces = [
     {
-        id: '17',
+        _id: '17',
 
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Филадельфия кранч',
@@ -181,7 +181,7 @@ export const sauces = [
         count: 1,
     },
     {
-        id: '18',
+        _id: '18',
 
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Филадельфия крем-брюле',
@@ -191,7 +191,7 @@ export const sauces = [
         count: 1,
     },
     {
-        id: '19',
+        _id: '19',
 
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Супер Филадельфия',
@@ -201,7 +201,7 @@ export const sauces = [
         count: 1,
     },
     {
-        id: '20',
+        _id: '20',
 
         image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
         title: 'Тигр мама',
@@ -214,7 +214,7 @@ export const sauces = [
 
 export const order = [
     {
-        id: 'id klienta',
+        _id: 'id klienta',
         number: 130312,
         date: 1633576399367,
         totalPrice: 1299,
@@ -228,7 +228,7 @@ export const order = [
         intercom: '4801#',
         itemsProduct: [
             {
-                id: '18',
+                _id: '18',
                 image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
                 title: 'Филадельфия крем-брюле',
                 body: 'Сливочный сыр, семга татаки с тростниковым сахаром, соус у...',
@@ -237,7 +237,7 @@ export const order = [
                 count: 1,
             },
             {
-                id: '19',
+                _id: '19',
 
                 image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
                 title: 'Супер Филадельфия',
@@ -247,7 +247,7 @@ export const order = [
                 count: 1,
             },
             {
-                id: '20',
+                _id: '20',
 
                 image: 'https://i.picsum.photos/id/537/200/300.jpg?hmac=LG3kZs5AdrMmsgeVOdrfP0C5KT3WmP-q5TauEZdR4vk',
                 title: 'Тигр мама',

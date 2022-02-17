@@ -6,7 +6,6 @@ const userEndpoint = 'user/'
 const userService = {
     create: async (payload: any) => {
         const { data } = await httpService.put(
-            // eslint-disable-next-line no-underscore-dangle
             userEndpoint + payload._id,
             payload,
         )

@@ -13,7 +13,6 @@ const productService = {
     },
     updateProduct: async (payload: any) => {
         const { data } = await httpService.patch(
-            // eslint-disable-next-line no-underscore-dangle
             productEndpoint + payload._id,
             payload,
         )

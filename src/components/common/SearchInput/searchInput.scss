@@ -1,0 +1,59 @@
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    width: 100%;
+    padding: 16px 32px;
+    border-radius: 8px;
+
+    &__product{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    &__preview{
+        margin-right: 20px;
+    }
+
+    &__input{
+        width: 100%;
+        margin-right: 20px;
+        height: 50px;
+        border: 2px solid #f0f0f0;
+        padding: 0 12px;
+        border-radius: 6px;
+        appearance: none;
+        outline: 0;
+    }
+
+    &__filer__button{
+        display: flex;
+        padding: 14px 32px;
+        border-radius: 6px;
+        color: #fff;
+        background-color: #FF7010;
+        cursor: pointer;
+
+        & img{
+            margin-right: 8px;
+        }
+
+        &:hover{
+            opacity: .7;
+        }
+    }
+
+    &__hidden__filter{
+        display: none;
+        justify-content: flex-end;
+        background: #fff;
+        width: 100%;
+        padding: 16px 32px;
+        border-radius: 8px;
+    }
+}
+
+.active__filer{
+    display: flex;
+}

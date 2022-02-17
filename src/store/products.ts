@@ -37,12 +37,11 @@ const productsSlice = createSlice({
         },
         updateProduct: (state, action) => {
             // @ts-ignore
-            // eslint-disable-next-line no-underscore-dangle,max-len
+            // eslint-disable-next-line max-len
             state.entities = state.entities.map((product) => (product._id === action.payload._id ? action.payload : product))
         },
         removeProduct: (state, action) => {
             // @ts-ignore
-            // eslint-disable-next-line no-underscore-dangle
             state.entities = state.entities.filter((product) => product._id !== action.payload)
         },
     },
@@ -112,7 +111,5 @@ export const deleteProduct = (payload: any) => async (dispatch: AppDispatch) => 
 }
 
 export const getProductsList = () => (state: any) => state.products.entities
-
-export const getStatusLoadingProducts = () => (state: any) => state.products.isLoading
 
 export default productsReducer

@@ -36,7 +36,6 @@ http.interceptors.request.use(
 )
 
 function transormData(data: transformData) {
-    // eslint-disable-next-line no-underscore-dangle
     return data && !data._id
         ? Object.keys(data).map((key) => ({
             // @ts-ignore

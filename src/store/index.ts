@@ -2,6 +2,7 @@ import basketReducer from './basket'
 import userReducer from './user'
 import productsReducer from './products'
 import orderReducer from './order'
+import categoryReducer from './category'
 
 const { combineReducers, configureStore } = require('@reduxjs/toolkit')
 
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
     user: userReducer,
     products: productsReducer,
     orders: orderReducer,
+    categories: categoryReducer,
 })
 
 export function createStore() {

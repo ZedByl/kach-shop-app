@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import './login.scss'
 import { useParams, withRouter } from 'react-router-dom'
-import LoginForm from '../../components/LoginForm/loginForm'
-import RegisterForm from '../../components/RegisterForm/registerForm'
+import LoginForm from '../../components/ui/LoginForm/loginForm'
+import RegisterForm from '../../components/ui/RegisterForm/registerForm'
 
 const Login = () => {
-    // @ts-ignore
-    const { type } = useParams()
+    const { type }: any = useParams()
     const [formType, setFormType] = useState(
         type === 'register' ? type : 'login',
     )
